@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Yeni Yılın Kutlu Olsun</title>
+<title>Yeni Yıl</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -13,6 +13,7 @@ body {
   background: radial-gradient(circle at top, #8b0000, #1a0000);
   color: white;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 section {
@@ -20,7 +21,7 @@ section {
   padding: 90px 20px;
   text-align: center;
   position: relative;
-  z-index: 1;
+  z-index: 5;
 }
 
 h1 {
@@ -29,10 +30,10 @@ h1 {
 }
 
 p {
-  font-size: 1.2rem;
-  max-width: 750px;
-  margin: 0 auto 20px;
-  line-height: 1.8;
+  font-size: 1.15rem;
+  max-width: 820px;
+  margin: 0 auto 25px;
+  line-height: 1.9;
 }
 
 /* ❄ KAR */
@@ -43,18 +44,40 @@ p {
   background-image:
     radial-gradient(white 1px, transparent 1px),
     radial-gradient(white 1px, transparent 1px);
-  background-size: 40px 40px, 60px 60px;
-  animation: snow 12s linear infinite;
-  opacity: 0.6;
-  z-index: 0;
+  background-size: 40px 40px, 70px 70px;
+  animation: snow 14s linear infinite;
+  opacity: 0.55;
+  z-index: 1;
 }
 
 @keyframes snow {
   from { background-position: 0 0, 0 0; }
-  to { background-position: 0 600px, 0 900px; }
+  to { background-position: 0 800px, 0 1200px; }
 }
 
-/* 📸 GALERİ */
+/* 🌍 DÜNYA */
+.earth-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+.earth {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
+  background-size: cover;
+  animation: spin 25s linear infinite;
+  box-shadow: 0 0 40px rgba(255,255,255,0.5);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 📸 GALERİ (SONRA DOLACAK) */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -67,43 +90,14 @@ p {
   width: 100%;
   border-radius: 14px;
   border: 2px solid #ffffff40;
-  transition: transform .3s;
 }
 
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-/* 🌍 DÜNYA */
-.earth-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
-}
-
-.earth {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
-  background-size: cover;
-  animation: spin 25s linear infinite;
-  box-shadow: 0 0 40px rgba(255,255,255,0.5);
-  cursor: grab;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* 🎵 SPOTIFY */
+/* 🎵 */
 iframe {
   border-radius: 14px;
   margin-top: 30px;
 }
 
-/* 🌺 KOKİNA */
 .kokina {
   font-size: 2rem;
   margin-top: 20px;
@@ -124,26 +118,58 @@ footer {
 <section>
   <h1>🎄 Yeni Yıl</h1>
   <p>
-    Bazı yıllar sadece takvim değiştirir.<br>
-    Bazıları insanın kalbinde iz bırakır.<br><br>
-    Yeni yılda sana; sağlık, huzur ve gülümseyebileceğin anlar diliyorum.<br>
-    Kalbim mesafeden bağımsız, hep seninle.
+    Bazı hikâyeler bir anda başlamaz.<br>
+    Bizimki de öyleydi.<br><br>
+
+    Yıllar önce, 2020’den bile önce bir yerde karşılaştık.<br>
+    Sonra hayat araya girdi, yollar sustu, zaman geçti.<br><br>
+
+    Ben askere gittim, geldim…<br>
+    Ve geçen yılın Eylül ayında, yeniden konuşmaya başladık.<br>
+    Fark etmeden, yavaş yavaş.<br><br>
+
+    Ayın 20’si bizim için bir tarih oldu.<br>
+    Çünkü o gün, sana ilk kez “seni seviyorum” dedim.<br>
+    Sonra her ayın 20’si biraz daha anlam kazandı.
   </p>
+
   <div class="kokina">🌺 🌲 🌺</div>
+</section>
+
+<section>
+  <h1>🤍 Biz</h1>
+  <p>
+    Aramızda bir muhabbet vardı…<br>
+    “Erkekler ilk çiçeklerini öldüklerinde alırlarmış” demiştim.<br><br>
+
+    Sen ise 2 Ekim’de, doğum günümde,<br>
+    “Sen ilk çiçeğini yaşarken aldın” dedin.<br><br>
+
+    Hayatımda ilk kez bir çiçek aldım.<br>
+    Ve o çiçek, sadece bir çiçek değildi.
+  </p>
+
+  <p>
+    Uzaktan bir ilişki yürüttük.<br>
+    Aylarca birbirimizi göremedik.<br>
+    Ama yine de bağımız koptu demedik.<br><br>
+
+    Sonra buluştuk.<br>
+    Anılar biriktirdik.<br>
+    Güldük, sustuk, yan yana durduk.
+  </p>
 </section>
 
 <section>
   <h1>📸 Anılar</h1>
   <p>
-    Buraya birlikte çekildiğimiz fotoğrafları ekleyebilirsin.<br>
-    Her fotoğraf, bir zamanı durdurur.
+    Bu bölüm, birlikte çekildiğimiz fotoğraflar için.<br>
+    Şimdilik boş olabilir.<br>
+    Ama her fotoğraf bir gün buraya yerini bulacak.
   </p>
 
   <div class="gallery">
-    <img src="foto1.jpg">
-    <img src="foto2.jpg">
-    <img src="foto3.jpg">
-    <img src="foto4.jpg">
+    <!-- Fotoğraflar buraya sonra eklenecek -->
   </div>
 </section>
 
@@ -155,18 +181,21 @@ footer {
   </div>
 
   <p>
-    Konumun ne olursa olsun,<br>
+    Eskiden konumumuzu birlikte görürdük.<br>
+    Şimdi bazı şeyler kapalı olabilir.<br><br>
+
+    Ama bilmeni isterim ki;<br>
+    konumun ne olursa olsun,<br>
     hangi şehir, hangi ülke olursa olsun,<br>
-    bil ki bir yerde kalbim<br>
-    hâlâ seninle dönüyor.
+    kalbimdeki yerin değişmedi.
   </p>
 </section>
 
 <section>
   <h1>🎵 Bu Yılın Sesi</h1>
   <p>
-    Bazen bir şarkı,<br>
-    söylenemeyen her şeyi anlatır.
+    Belki biraz hüzünlü.<br>
+    Ama gerçek.
   </p>
 
   <iframe

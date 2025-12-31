@@ -4,135 +4,15 @@
   <meta charset="UTF-8" />
   <title>Yeni Yılın Kutlu Olsun</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #7a0000, #2b0000);
-      color: white;
-      overflow-x: hidden;
-    }
-
-    section {
-      padding: 90px 20px;
-      text-align: center;
-      position: relative;
-      z-index: 5;
-    }
-
-    h1 {
-      font-size: 2.7rem;
-      margin-bottom: 25px;
-    }
-
-    p {
-      font-size: 1.15rem;
-      max-width: 760px;
-      margin: 0 auto 20px;
-      line-height: 1.8;
-    }
-
-    /* KAR */
-    .snow {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image: radial-gradient(white 1px, transparent 1px);
-      background-size: 40px 40px;
-      animation: snow 12s linear infinite;
-      opacity: 0.6;
-      z-index: 1;
-    }
-
-    @keyframes snow {
-      from { background-position: 0 0; }
-      to { background-position: 0 600px; }
-    }
-
-    /* GALERİ */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      max-width: 900px;
-      margin: 40px auto;
-    }
-
-    .gallery img {
-      width: 100%;
-      border-radius: 14px;
-      border: 2px solid rgba(255,255,255,0.2);
-    }
-
-    /* DÖNEN DÜNYA */
-    .earth {
-      width: 200px;
-      height: 200px;
-      margin: 40px auto;
-      border-radius: 50%;
-      background: url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
-      background-size: cover;
-      animation: spin 20s linear infinite;
-      box-shadow: 0 0 35px rgba(255,255,255,0.4);
-    }
-
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    /* UZUN YAZI */
-    .letter {
-      background: rgba(255,255,255,0.09);
-      border-radius: 20px;
-      padding: 40px 28px;
-      max-width: 850px;
-      margin: 0 auto;
-      box-shadow: 0 0 35px rgba(0,0,0,0.35);
-      overflow: visible;
-    }
-
-    iframe {
-      border-radius: 12px;
-      margin-top: 25px;
-    }
-
-    /* Mobil uyum */
-    @media (max-width: 600px) {
-      h1 { font-size: 2rem; }
-      .letter { 
-        padding: 30px 20px; 
-        font-size: 1rem; 
-      }
-      iframe {
-        height: 300px;
-      }
-    }
-
-    /* Oynatma butonu */
-    .play-button {
-      margin-top: 20px;
-      padding: 12px 25px;
-      background-color: #1DB954;
-      color: white;
-      border: none;
-      border-radius: 30px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-  </style>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="snow"></div>
+<!-- Arkaplan Kar -->
+<canvas id="background-snow"></canvas>
 
 <!-- GİRİŞ -->
 <section>
@@ -183,10 +63,7 @@
   <p>Fotoğrafları daha sonra ekleyebilirsin. Yerleri hazır.</p>
 
   <div class="gallery">
-    <!--
-    <img src="foto1.jpg">
-    <img src="foto2.jpg">
-    -->
+    <!-- <img src="foto1.jpg"> -->
   </div>
 </section>
 
@@ -208,7 +85,6 @@
   <h1>🎵 Bu Yılın Sesi</h1>
   <p>Bazı şeyler şarkılarla daha iyi anlatılıyor.</p>
 
-  <!-- Spotify iframe -->
   <iframe 
       id="spotify-player"
       src="https://open.spotify.com/embed/track/6cjIlxXM1ca6nxkJ0p27jU" 
@@ -219,7 +95,6 @@
       loading="lazy">
   </iframe>
 
-  <!-- Oynatma butonu -->
   <button class="play-button" onclick="playSpotify()">Şarkıyı Çal</button>
 </section>
 
@@ -228,12 +103,7 @@
   Her günün kalbinde bir ışık olsun.
 </footer>
 
-<script>
-  function playSpotify() {
-    // iframe tıklamasını simüle edemiyoruz, ama kullanıcıya tıklatıyoruz
-    alert("Spotify'da şarkıyı oynatmak için iframe içindeki 'Play' butonuna basmalısın.");
-  }
-</script>
-
+<!-- JS -->
+<script src="script.js"></script>
 </body>
 </html>

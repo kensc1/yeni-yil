@@ -1,73 +1,107 @@
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  font-family:"Segoe UI",sans-serif;
-  background: radial-gradient(circle at top, #7a0000, #2b0000);
-  color:white;
-  overflow-x:hidden;
-  position:relative;
+/* Genel sıfırlama */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-section{padding:90px 20px;text-align:center;position:relative;z-index:5;}
-h1{font-size:2.7rem;margin-bottom:25px;}
-p{font-size:1.15rem;max-width:760px;margin:0 auto 20px;line-height:1.8;}
-.letter{
-  background: rgba(255,255,255,0.09);
-  border-radius:20px;
-  padding:40px 28px;
-  max-width:850px;
-  margin:0 auto;
-  box-shadow:0 0 35px rgba(0,0,0,0.35);
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #7a0000, #2b0000);
+  color: white;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 90px 20px;
+  text-align: center;
   position: relative;
+  z-index: 5;
+}
+
+h1 {
+  font-size: 2.7rem;
+  margin-bottom: 25px;
+}
+
+p {
+  font-size: 1.15rem;
+  max-width: 760px;
+  margin: 0 auto 20px;
+  line-height: 1.8;
+}
+
+/* KAR YAĞIŞI */
+#background-snow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* GALERİ */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 14px;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+/* DÖNEN DÜNYA */
+.earth {
+  width: 200px;
+  height: 200px;
+  margin: 40px auto;
+  border-radius: 50%;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
+  background-size: cover;
+  animation: spin 20s linear infinite;
+  box-shadow: 0 0 35px rgba(255,255,255,0.4);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* UZUN YAZI */
+.letter {
+  background: rgba(255,255,255,0.09);
+  border-radius: 20px;
+  padding: 40px 28px;
+  max-width: 850px;
+  margin: 0 auto;
+  box-shadow: 0 0 35px rgba(0,0,0,0.35);
   overflow: visible;
 }
-iframe{border-radius:12px;margin-top:25px;}
-.earth{width:200px;height:200px;margin:40px auto;border-radius:50%;background:url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");background-size:cover;animation:spin 20s linear infinite;box-shadow:0 0 35px rgba(255,255,255,0.4);}
-@keyframes spin{from{transform:rotate(0deg);} to{transform:rotate(360deg);}}
-footer{ text-align:center;font-size:1rem;opacity:0.85;padding:50px 20px 50px;position:relative;z-index:5;}
 
-/* Arka plan kar ve canvas */
-#background-snow,#snowman-canvas{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  pointer-events:none;
-  z-index:0;
+/* SÜRPRİZ BUTONU */
+#surprise-btn {
+  background: url('https://cdn-icons-png.flaticon.com/512/2910/2910766.png') no-repeat center center;
+  background-size: cover;
+  border: none;
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
-
-/* Buton tasarımı */
-#surprise-btn{
-  margin-top:20px;
-  padding:15px 35px;
-  background: linear-gradient(145deg,#ffde00,#ff8c00);
-  border:none;
-  border-radius:12px;
-  font-size:1.2rem;
-  color:white;
-  font-weight:bold;
-  cursor:pointer;
-  position:relative;
-  transition:0.3s;
-  box-shadow: 0 0 10px #fff;
-}
-#surprise-btn:hover{
-  transform: scale(1.1);
-  box-shadow: 0 0 25px #fff, 0 0 50px #ff0;
-}
-#surprise-btn::before{
-  content:"🎁";
-  position:absolute;
-  left:10px;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:1.3rem;
+#surprise-btn:hover {
+  transform: scale(1.2);
 }
 
 /* "Seni Seviyorum" yazısı */
 #love-text {
-  position: relative; /* artık absolute veya fixed değil, kendi section içinde */
   display: block;
-  margin: 20px auto 40px auto; /* Sürpriz Zamanı başlığının üstünde ortalı */
+  margin: -40px auto 20px auto; /* Sürpriz Zamanı başlığının üstünde */
   font-size: 3rem;
   color: #ff1a75;
   font-weight: bold;
@@ -77,29 +111,9 @@ footer{ text-align:center;font-size:1rem;opacity:0.85;padding:50px 20px 50px;pos
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
+/* Mobil uyum */
 @media(max-width:600px){
-  #love-text{
-    font-size:2rem;
-    margin: 15px auto 30px auto;
-    opacity: 0;
-  }
-}
-
-}
-
-}
-
-/* Mobilde yazıyı da başlangıçta gizle */
-@media(max-width:600px){
-  h1{font-size:2rem;}
-  .letter{padding:30px 20px;font-size:1rem;}
-  #love-text{font-size:2rem; opacity:0;}
-}
-
-}
-
-@media(max-width:600px){
-  h1{font-size:2rem;}
-  .letter{padding:30px 20px;font-size:1rem;}
-  #love-text{font-size:2rem;}
+  h1 { font-size: 2rem; }
+  .letter { padding: 30px 20px; font-size: 1rem; }
+  #love-text { font-size: 2rem; margin: -30px auto 15px auto; opacity: 0; }
 }

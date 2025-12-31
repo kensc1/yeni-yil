@@ -41,14 +41,6 @@ function drawSnow(){
 }
 drawSnow();
 
-// --- Sayfa açılış animasyonu (hediye paketi) ---
-window.addEventListener("load", () => {
-    const container = document.getElementById("page-container");
-    setTimeout(() => {
-        container.classList.add("show");
-    }, 500);
-});
-
 // --- Sürpriz butonu ve kardan adam ---
 const snowmanCanvas = document.getElementById("snowman-canvas");
 const sctx = snowmanCanvas.getContext("2d");
@@ -100,7 +92,6 @@ function startSnowmanAnimation() {
         }
 
         if(!snowman.exploded){
-            // Kardan adam büyüyen hali
             sctx.fillStyle = "white";
             sctx.beginPath();
             sctx.arc(snowman.x,snowman.y,snowman.radius,0,Math.PI*2);

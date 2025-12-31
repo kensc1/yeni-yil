@@ -127,24 +127,20 @@ document.addEventListener("DOMContentLoaded", () => {
     animateSnowman();
   }
 
-  // Anılarımız fotoğraf yükleme
-  const input = document.getElementById('photo-input');
+  // Google Drive fotoğraf galerisi
   const gallery = document.getElementById('photo-gallery');
 
-  input.addEventListener('change', (e) => {
-    gallery.innerHTML = "";
-    const files = e.target.files;
-    if(files){
-      Array.from(files).forEach(file => {
-        const reader = new FileReader();
-        reader.onload = function(evt){
-          const img = document.createElement('img');
-          img.src = evt.target.result;
-          gallery.appendChild(img);
-        }
-        reader.readAsDataURL(file);
-      });
-    }
+  // Buraya Drive linklerini ekleyeceksin
+  const driveImages = [
+    // Örnek:
+    // "https://drive.google.com/uc?export=view&id=FILE_ID1",
+    // "https://drive.google.com/uc?export=view&id=FILE_ID2"
+  ];
+
+  driveImages.forEach(url => {
+    const img = document.createElement('img');
+    img.src = url;
+    gallery.appendChild(img);
   });
 
 });

@@ -53,11 +53,17 @@ function startSnowmanAnimation(){
     if(snowman.growing){
       snowman.radius += 2;
       if(snowman.radius >= snowman.maxRadius){
-        snowman.growing = false;
-        snowman.exploded = true;
-        createParticles();
-        // göster "Seni Seviyorum"
-        loveText.style.opacity = 1;
+    snowman.growing = false;
+    snowman.exploded = true;
+    createParticles();
+    // göster "Seni Seviyorum" ve animasyon ekle
+    loveText.style.opacity = 1;
+    loveText.style.transform = "translate(-50%, -50%) scale(1.3)";
+    setTimeout(()=>{
+        loveText.style.transform = "translate(-50%, -50%) scale(1)";
+    },500);
+}
+
       }
     }
 

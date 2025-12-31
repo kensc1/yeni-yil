@@ -1,8 +1,3 @@
-// Spotify buton uyarısı
-function playSpotify() {
-  alert("Spotify'da şarkıyı oynatmak için iframe içindeki 'Play' butonuna basmalısın.");
-}
-
 // Canvas karları
 const canvas = document.getElementById("background-snow");
 const ctx = canvas.getContext("2d");
@@ -10,7 +5,7 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const snowflakes = [];
-for(let i=0;i<250;i++){
+for(let i=0;i<200;i++){
   snowflakes.push({
     x: Math.random()*canvas.width,
     y: Math.random()*canvas.height,
@@ -46,31 +41,32 @@ function updateSnow(){
 
 drawSnow();
 
-// Element üstüne kar düşmesi (hover)
+// Element hover kar düşmesi
 const elements = document.querySelectorAll('.letter, p, h1');
-
 elements.forEach(el=>{
   el.addEventListener('mouseenter',()=>{
-    const snow = document.createElement('div');
-    snow.style.position='absolute';
-    snow.style.width='5px';
-    snow.style.height='5px';
-    snow.style.background='white';
-    snow.style.borderRadius='50%';
     const rect = el.getBoundingClientRect();
-    snow.style.left = rect.left + Math.random()*rect.width + 'px';
-    snow.style.top = rect.top + window.scrollY + 'px';
-    snow.style.zIndex='10';
-    document.body.appendChild(snow);
+    for(let i=0;i<5;i++){
+      const snow = document.createElement('div');
+      snow.style.position='absolute';
+      snow.style.width='5px';
+      snow.style.height='5px';
+      snow.style.background='white';
+      snow.style.borderRadius='50%';
+      snow.style.left = rect.left + Math.random()*rect.width + 'px';
+      snow.style.top = rect.top + window.scrollY + 'px';
+      snow.style.zIndex='10';
+      document.body.appendChild(snow);
 
-    let y=parseFloat(snow.style.top);
-    const fall=setInterval(()=>{
-      y+=2;
-      snow.style.top=y+'px';
-      if(y>window.innerHeight){
-        snow.remove();
-        clearInterval(fall);
-      }
-    },10);
+      let y=parseFloat(snow.style.top);
+      const fall=setInterval(()=>{
+        y+=2+Math.random()*2;
+        snow.style.top=y+'px';
+        if(y>window.innerHeight){
+          snow.remove();
+          clearInterval(fall);
+        }
+      },10);
+    }
   });
 });

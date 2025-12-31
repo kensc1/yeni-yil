@@ -80,9 +80,9 @@ p {
   z-index:1;
 }
 
-/* SÜRPRİZ BUTONU - Hediye paketi simgesi */
+/* SÜRPRİZ BUTONU - Eski para simgesi */
 #surprise-btn {
-  background: url('https://cdn-icons-png.flaticon.com/512/2910/2910766.png') no-repeat center center;
+  background: url('https://cdn-icons-png.flaticon.com/512/2910/2910748.png') no-repeat center center;
   background-size: cover;
   border: none;
   width: 120px;

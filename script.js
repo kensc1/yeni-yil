@@ -42,7 +42,13 @@ resizeSnowman();
 const btn=document.getElementById("surprise-btn");
 const loveText=document.getElementById("love-text");
 
-btn.addEventListener("click",()=>{startSnowmanAnimation();});
+btn.addEventListener("click",()=>{
+    startSnowmanAnimation();
+    // Butona basınca "Seni Seviyorum" yazısını göster
+    loveText.style.opacity = 1;
+    loveText.style.transform = "translate(-50%, -50%) scale(1.2)";
+    setTimeout(()=>{loveText.style.transform = "translate(-50%, -50%) scale(1)";},500);
+});
 
 function startSnowmanAnimation(){
   let snowman={x:window.innerWidth/2,y:window.innerHeight/2,radius:10,maxRadius:100,growing:true,exploded:false,particles:[]};
@@ -56,10 +62,6 @@ function startSnowmanAnimation(){
         snowman.growing = false;
         snowman.exploded = true;
         createParticles();
-        // yazıyı göster patlama sonrası
-        loveText.style.opacity = 1;
-        loveText.style.transform = "translate(-50%, -50%) scale(1.2)";
-        setTimeout(()=>{loveText.style.transform = "translate(-50%, -50%) scale(1)";},500);
       }
     }
 

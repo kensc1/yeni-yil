@@ -17,6 +17,7 @@
       background: radial-gradient(circle at top, #7a0000, #2b0000);
       color: white;
       overflow-x: hidden;
+      position: relative;
     }
 
     section {
@@ -98,6 +99,39 @@
       overflow: visible;
     }
 
+    /* BUTTON */
+    button {
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 12px;
+      background: #fff;
+      color: #7a0000;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+      margin-top: 15px;
+    }
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    /* KAR TOPU ANİMASYONU */
+    .snowball {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: white;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0.9;
+      animation: snowball 1s forwards;
+    }
+    @keyframes snowball {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
+    }
+
     iframe {
       border-radius: 12px;
       margin-top: 25px;
@@ -140,7 +174,6 @@
 <!-- ROMANTİK YAZI -->
 <section>
   <h1>💌 Sana</h1>
-
   <div class="letter">
     <p>
       Bu siteyi yaparken her satırında seni düşündüm.  
@@ -186,9 +219,7 @@
 <!-- DÜNYA -->
 <section>
   <h1>🌍 Nereye Gidersen Git</h1>
-
   <div class="earth"></div>
-
   <p>
     Konumun ne olursa olsun,  
     nereye gidersen git,  
@@ -200,7 +231,6 @@
 <section>
   <h1>🎵 Bu Yılın Sesi</h1>
   <p>Bazı şeyler şarkılarla daha iyi anlatılıyor.</p>
-
   <iframe data-testid="embed-iframe" 
           style="border-radius:12px" 
           src="https://open.spotify.com/embed/track/6cjIlxXM1ca6nxkJ0p27jU?utm_source=generator" 
@@ -213,10 +243,31 @@
   </iframe>
 </section>
 
+<!-- SÜRPRİZ BUTON -->
+<section>
+  <h1>🎁 Küçük Sürpriz</h1>
+  <p>Butona tıkla ve bir kar topu patlasın!</p>
+  <button id="snowButton">Tıkla!</button>
+</section>
+
 <footer>
   Yeni yılın sana neşe, huzur ve sevgiyi getirmesini diliyorum.  
   Her günün kalbinde bir ışık olsun.
 </footer>
+
+<script>
+const button = document.getElementById("snowButton");
+
+button.addEventListener("click", (e) => {
+  const snow = document.createElement("div");
+  snow.className = "snowball";
+  snow.style.left = e.clientX + "px";
+  snow.style.top = e.clientY + "px";
+  document.body.appendChild(snow);
+  
+  setTimeout(() => snow.remove(), 1000);
+});
+</script>
 
 </body>
 </html>

@@ -90,6 +90,7 @@ footer{ text-align:center;font-size:1rem;opacity:0.85;padding:50px 20px 50px;pos
 }
 #photo-gallery img{
   width:100%;
+  height:auto;
   border-radius:12px;
   box-shadow:0 0 15px rgba(255,255,255,0.4);
 }
@@ -111,6 +112,9 @@ footer{ text-align:center;font-size:1rem;opacity:0.85;padding:50px 20px 50px;pos
   border-radius:12px;
   cursor:pointer;
   transition:1s;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 #gift-box.opened{transform:scale(1.2) rotate(10deg);}
 .ribbon{

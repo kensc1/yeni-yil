@@ -1,4 +1,4 @@
-// --- Arka plan kar ---
+// Arka plan kar
 const canvas = document.getElementById("background-snow");
 const ctx = canvas.getContext("2d");
 
@@ -41,7 +41,7 @@ function drawSnow(){
 }
 drawSnow();
 
-// --- Sürpriz butonu ve kardan adam ---
+// Sürpriz buton ve kardan adam
 const snowmanCanvas = document.getElementById("snowman-canvas");
 const sctx = snowmanCanvas.getContext("2d");
 
@@ -58,7 +58,6 @@ const loveText = document.getElementById("love-text");
 btn.addEventListener("click", () => {
     startSnowmanAnimation();
 
-    // "Seni Seviyorum" yazısı patlama sonrası
     setTimeout(() => {
         loveText.style.opacity = 1;
         loveText.style.transform = "scale(1.2)";
@@ -103,7 +102,7 @@ function startSnowmanAnimation() {
                 let p = snowman.particles[i];
                 p.x += p.vx;
                 p.y += p.vy;
-                p.vy += 0.15; // yerçekimi
+                p.vy += 0.15;
                 sctx.fillStyle = "white";
                 sctx.beginPath();
                 sctx.arc(p.x,p.y,p.r,0,Math.PI*2);

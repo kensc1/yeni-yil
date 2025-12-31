@@ -1,30 +1,37 @@
-// Her .content bölümünün üstüne kar ekle
-document.querySelectorAll('.content').forEach(section => {
-  const flakes = [];
-  for(let i=0;i<50;i++){
-    const flake = document.createElement('div');
-    flake.className='snowflake';
-    flake.style.left = Math.random() * section.offsetWidth + 'px';
-    flake.style.top = Math.random() * section.offsetHeight + 'px';
-    flake.speed = 0.3 + Math.random()*0.7;
-    section.appendChild(flake);
-    flakes.push(flake);
-  }
+const container = document.getElementById("snowContainer");
 
-  // Kar animasyonu
-  function animate(){
-    flakes.forEach(f=>{
-      let top = parseFloat(f.style.top);
-      top += f.speed;
-      if(top > section.offsetHeight) top = -10;
-      f.style.top = top + 'px';
-    });
-    requestAnimationFrame(animate);
-  }
-  animate();
+// KAR TANECIKLERI OLUŞTUR
+const flakes = [];
+for(let i=0;i<200;i++){
+  const flake = document.createElement("div");
+  flake.className="snowflake";
+  flake.style.left = Math.random()*window.innerWidth + "px";
+  flake.style.top = Math.random()*window.innerHeight + "px";
+  flake.speed = 0.5 + Math.random();
+  container.appendChild(flake);
+  flakes.push(flake);
+}
+
+// KAR TANECIKLERINI ANIMASYONLA YUKARI ASAGI HAREKET ETTIR
+function animate(){
+  flakes.forEach(f=>{
+    let top = parseFloat(f.style.top);
+    top += f.speed;
+    if(top > window.innerHeight) top = -10;
+    f.style.top = top + "px";
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+
+// SCROLL ile karların erimesi (opacity azalır)
+window.addEventListener("scroll", ()=>{
+  let maxScroll = document.body.scrollHeight - window.innerHeight;
+  let scrollFraction = window.scrollY / maxScroll;
+  flakes.forEach(f=> f.style.opacity = Math.max(0, 0.8 - scrollFraction));
 });
 
-// Kar topu butonu
+// KAR TOPU BUTONU
 const button = document.getElementById("snowButton");
 button.addEventListener("click", ()=>{
   for(let i=0;i<10;i++){

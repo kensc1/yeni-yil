@@ -1,32 +1,21 @@
 const button = document.getElementById("snowButton");
 
-function createSnowballs(clientX, clientY) {
-  for (let i = 0; i < 10; i++) {
+button.addEventListener("click", () => {
+  for(let i=0;i<10;i++){
     const snow = document.createElement("div");
     snow.className = "snowball";
 
-    // Kar topunu sayfa koordinatına yerleştir
-    const rect = document.body.getBoundingClientRect();
-    snow.style.left = (clientX - rect.left) + "px";
-    snow.style.top = (clientY - rect.top) + "px";
+    // Rastgele başlangıç pozisyonu buton etrafında
+    snow.style.left = (button.offsetLeft + button.offsetWidth/2 + Math.random()*60-30) + "px";
+    snow.style.top = (button.offsetTop + button.offsetHeight/2 + Math.random()*20-10) + "px";
 
-    // Rastgele yön ve mesafe
-    const x = (Math.random() * 200 - 100) + "px";
-    const y = (Math.random() * -200) + "px";
+    // Rastgele yön
+    const x = (Math.random()*100 -50) + "px";
+    const y = (Math.random()*-150) + "px";
     snow.style.setProperty("--x", x);
     snow.style.setProperty("--y", y);
 
     document.body.appendChild(snow);
-    setTimeout(() => snow.remove(), 1000);
+    setTimeout(()=> snow.remove(), 1200);
   }
-}
-
-// Hem click hem touch için
-button.addEventListener("click", (e) => {
-  createSnowballs(e.clientX, e.clientY);
-});
-
-button.addEventListener("touchstart", (e) => {
-  const touch = e.touches[0];
-  createSnowballs(touch.clientX, touch.clientY);
 });

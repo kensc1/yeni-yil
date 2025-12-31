@@ -4,15 +4,14 @@ const giftBox = document.getElementById("gift-box");
 const mainContent = document.getElementById("main-content");
 
 giftWrapper.addEventListener("click", ()=>{
-  // Kutu yukarı gelsin ve açılma animasyonu
   giftWrapper.classList.add("top");
   giftBox.classList.add("opened");
 
   setTimeout(()=>{
     mainContent.style.opacity = 1;
-    startSnow(); // kar animasyonu
-    window.scrollTo({top:0, behavior:"smooth"}); // sayfayı en üste kaydır
-  },1000);
+    startSnow(); 
+    window.scrollTo({top:0, behavior:"smooth"});
+  },800);
 });
 
 // --- Arka plan kar ---

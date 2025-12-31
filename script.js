@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainContent = document.getElementById("main-content");
   const clickText = giftBox.querySelector(".click-text");
 
+  // Başlangıçta main-content gizli
+  mainContent.style.opacity = 0;
+
   giftWrapper.addEventListener("click", ()=>{
     giftWrapper.classList.add("top");
     giftBox.classList.add("opened");

@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(()=>{
       mainContent.style.opacity = 1;
-      startSnow(); 
       window.scrollTo({top:0, behavior:"smooth"});
+      startSnow(); 
     },800);
   });
 

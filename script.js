@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  // Hediyelik kutu
   const giftWrapper = document.getElementById("gift-wrapper");
   const giftBox = document.getElementById("gift-box");
   const mainContent = document.getElementById("main-content");
@@ -19,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },800);
   });
 
-  // --- Arka plan kar ---
+  // Kar efekti
   function startSnow(){
     const canvas=document.getElementById("background-snow");
     const ctx=canvas.getContext("2d");
@@ -52,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     drawSnow();
   }
 
-  // --- Kardan adam ve sürpriz ---
+  // Kardan adam ve sürpriz
   const snowmanCanvas=document.getElementById("snowman-canvas");
   const sctx=snowmanCanvas.getContext("2d");
   function resizeSnowman(){snowmanCanvas.width=window.innerWidth;snowmanCanvas.height=window.innerHeight;}
@@ -63,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const loveText=document.getElementById("love-text");
   let snowmanAnimationId = null;
 
-  // Başlangıçta loveText gizli
   loveText.style.opacity = 0;
   loveText.style.transform = "translate(-50%, -50%) scale(0)";
 
@@ -84,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
           snowman.growing = false;
           snowman.exploded = true;
           createParticles();
-          // Yazıyı patlama sonrası göster
           loveText.style.opacity = 1;
           loveText.style.transform = "translate(-50%, -50%) scale(1)";
         }
@@ -127,5 +126,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     animateSnowman();
   }
+
+  // Anılarımız fotoğraf yükleme
+  const input = document.getElementById('photo-input');
+  const gallery = document.getElementById('photo-gallery');
+
+  input.addEventListener('change', (e) => {
+    gallery.innerHTML = "";
+    const files = e.target.files;
+    if(files){
+      Array.from(files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(evt){
+          const img = document.createElement('img');
+          img.src = evt.target.result;
+          gallery.appendChild(img);
+        }
+        reader.readAsDataURL(file);
+      });
+    }
+  });
 
 });

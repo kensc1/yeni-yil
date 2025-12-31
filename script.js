@@ -32,6 +32,14 @@ function drawSnow(){
 }
 drawSnow();
 
+// --- Hediyeyi açma animasyonu ---
+window.addEventListener("load", ()=>{
+  const gift = document.getElementById("gift");
+  setTimeout(()=>{
+    gift.classList.add("open");
+  }, 500);
+});
+
 // --- Kardan adam ve sürpriz ---
 const snowmanCanvas=document.getElementById("snowman-canvas");
 const sctx=snowmanCanvas.getContext("2d");

@@ -32,7 +32,7 @@ function drawSnow(){
 }
 drawSnow();
 
-// --- Sürpriz Buton ve Kardan Adam ---
+// --- Kardan adam ve sürpriz ---
 const snowmanCanvas=document.getElementById("snowman-canvas");
 const sctx=snowmanCanvas.getContext("2d");
 function resizeSnowman(){snowmanCanvas.width=window.innerWidth;snowmanCanvas.height=window.innerHeight;}
@@ -56,17 +56,15 @@ function startSnowmanAnimation(){
         snowman.growing = false;
         snowman.exploded = true;
         createParticles();
-        // "Seni Seviyorum" yazısı patlama sonrası
+        // yazıyı göster patlama sonrası
         loveText.style.opacity = 1;
         loveText.style.transform = "translate(-50%, -50%) scale(1.2)";
-        setTimeout(()=>{
-          loveText.style.transform = "translate(-50%, -50%) scale(1)";
-        },500);
+        setTimeout(()=>{loveText.style.transform = "translate(-50%, -50%) scale(1)";},500);
       }
     }
 
     if(!snowman.exploded){
-      sctx.fillStyle = "white";
+      sctx.fillStyle="white";
       sctx.beginPath();
       sctx.arc(snowman.x,snowman.y,snowman.radius,0,Math.PI*2);
       sctx.fill();
@@ -77,7 +75,7 @@ function startSnowmanAnimation(){
         let p=snowman.particles[i];
         p.x += p.vx;
         p.y += p.vy;
-        p.vy += 0.15;
+        p.vy += 0.15; // yerçekimi
         sctx.fillStyle="white";
         sctx.beginPath();
         sctx.arc(p.x,p.y,p.r,0,Math.PI*2);

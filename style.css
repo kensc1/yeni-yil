@@ -1,9 +1,5 @@
 /* Genel sıfırlama */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
   font-family: "Segoe UI", sans-serif;
@@ -19,10 +15,7 @@ section {
   z-index: 5;
 }
 
-h1 {
-  font-size: 2.7rem;
-  margin-bottom: 25px;
-}
+h1 { font-size: 2.7rem; margin-bottom: 25px; }
 
 p {
   font-size: 1.15rem;
@@ -31,55 +24,37 @@ p {
   line-height: 1.8;
 }
 
-/* KAR YAĞIŞI */
+/* Arka plan kar */
 #background-snow {
   position: fixed;
-  inset: 0;
+  inset:0;
   pointer-events: none;
-  z-index: 1;
+  z-index:1;
 }
 
-/* GALERİ */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-  max-width: 900px;
-  margin: 40px auto;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 14px;
-  border: 2px solid rgba(255,255,255,0.2);
-}
+/* Galeri */
+.gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; max-width:900px; margin:40px auto; }
+.gallery img { width:100%; border-radius:14px; border:2px solid rgba(255,255,255,0.2); }
 
 /* DÖNEN DÜNYA */
 .earth {
-  width: 200px;
-  height: 200px;
-  margin: 40px auto;
-  border-radius: 50%;
-  background: url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
-  background-size: cover;
+  width:200px; height:200px; margin:40px auto; border-radius:50%;
+  background:url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
+  background-size:cover;
   animation: spin 20s linear infinite;
   box-shadow: 0 0 35px rgba(255,255,255,0.4);
 }
+@keyframes spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* UZUN YAZI */
+/* Uzun yazı */
 .letter {
   background: rgba(255,255,255,0.09);
-  border-radius: 20px;
-  padding: 40px 28px;
-  max-width: 850px;
-  margin: 0 auto;
-  box-shadow: 0 0 35px rgba(0,0,0,0.35);
-  overflow: visible;
+  border-radius:20px;
+  padding:40px 28px;
+  max-width:850px;
+  margin:0 auto;
+  box-shadow:0 0 35px rgba(0,0,0,0.35);
+  overflow:visible;
 }
 
 /* SÜRPRİZ BUTONU */
@@ -94,26 +69,36 @@ p {
   cursor: pointer;
   transition: transform 0.2s ease;
 }
-#surprise-btn:hover {
-  transform: scale(1.2);
-}
+#surprise-btn:hover { transform: scale(1.2); }
 
 /* "Seni Seviyorum" yazısı */
 #love-text {
-  display: block;
-  margin: -40px auto 20px auto; /* Sürpriz Zamanı başlığının üstünde */
-  font-size: 3rem;
-  color: #ff1a75;
-  font-weight: bold;
-  opacity: 0; /* başta görünmez */
-  pointer-events: none;
-  text-align: center;
+  display:block;
+  margin: -40px auto 20px auto;
+  font-size:3rem;
+  color:#ff1a75;
+  font-weight:bold;
+  opacity:0;
+  pointer-events:none;
+  text-align:center;
   transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* SAYFA KONTAINER ANİMASYONU */
+#page-container {
+  opacity:0;
+  transform: scale(0.5) rotate(-10deg);
+  transform-origin: center top;
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+#page-container.show {
+  opacity:1;
+  transform: scale(1) rotate(0deg);
 }
 
 /* Mobil uyum */
 @media(max-width:600px){
-  h1 { font-size: 2rem; }
-  .letter { padding: 30px 20px; font-size: 1rem; }
-  #love-text { font-size: 2rem; margin: -30px auto 15px auto; opacity: 0; }
+  h1 { font-size:2rem; }
+  .letter { padding:30px 20px; font-size:1rem; }
+  #love-text { font-size:2rem; margin:-30px auto 15px auto; opacity:0; }
 }

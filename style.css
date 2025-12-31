@@ -30,7 +30,7 @@ footer{ text-align:center;font-size:1rem;opacity:0.85;padding:50px 20px 50px;pos
 #surprise-btn{margin-top:20px;padding:15px 35px;background: linear-gradient(145deg,#ffde00,#ff8c00);border:none;border-radius:12px;font-size:1.2rem;color:white;font-weight:bold;cursor:pointer;position:relative;transition:0.3s;box-shadow: 0 0 10px #fff;}
 #surprise-btn:hover{transform: scale(1.1);box-shadow: 0 0 25px #fff, 0 0 50px #ff0;}
 #surprise-btn::before{content:"🎁";position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:1.3rem;}
-#love-text{position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%) scale(1);font-size: 3rem;color: #ff1a75;font-weight: bold;opacity: 1;pointer-events: none;text-shadow: 0 0 15px #fff;z-index: 10;text-align: center;}
+#love-text{position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%) scale(0);font-size: 3rem;color: #ff1a75;font-weight: bold;opacity: 0;pointer-events: none;text-shadow: 0 0 15px #fff;z-index: 10;text-align: center;}
 
 /* Mobil uyumlu */
 @media(max-width:600px){

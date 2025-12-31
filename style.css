@@ -24,7 +24,7 @@ iframe{border-radius:12px;margin-top:25px;}
 @keyframes spin{from{transform:rotate(0deg);} to{transform:rotate(360deg);}}
 footer{ text-align:center;font-size:1rem;opacity:0.85;padding:50px 20px 50px;position:relative;z-index:5;}
 
-/* Arka plan kar ve canvas */
+/* Kar ve kardan adam canvas */
 #background-snow,#snowman-canvas{
   position:fixed;
   top:0;
@@ -63,7 +63,7 @@ footer{ text-align:center;font-size:1rem;opacity:0.85;padding:50px 20px 50px;pos
   font-size:1.3rem;
 }
 
-/* "Seni Seviyorum" yazısı sabit kalacak */
+/* "Seni Seviyorum" sabit kalacak */
 #love-text {
   position: fixed;
   top: 50%;
@@ -140,4 +140,5 @@ footer{ text-align:center;font-size:1rem;opacity:0.85;padding:50px 20px 50px;pos
   h1{font-size:2rem;}
   .letter{padding:30px 20px;font-size:1rem;}
   #love-text{font-size:2rem;}
+  #gift-box{width:100px;height:100px;}
 }

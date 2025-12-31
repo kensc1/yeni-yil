@@ -1,102 +1,120 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Yeni Yılın Kutlu Olsun</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>Yeni Yılın Kutlu Olsun</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #7a0000, #2b0000);
-      color: white;
-      overflow-x: hidden;
-    }
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #8b0000, #1a0000);
+  color: white;
+  overflow-x: hidden;
+}
 
-    section {
-      min-height: 100vh;
-      padding: 80px 20px;
-      text-align: center;
-    }
+section {
+  min-height: 100vh;
+  padding: 90px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
+h1 {
+  font-size: 3rem;
+  margin-bottom: 25px;
+}
 
-    p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto 20px;
-      line-height: 1.7;
-    }
+p {
+  font-size: 1.2rem;
+  max-width: 750px;
+  margin: 0 auto 20px;
+  line-height: 1.8;
+}
 
-    /* KAR */
-    .snow {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      top: 0;
-      left: 0;
-      background-image: radial-gradient(white 1px, transparent 1px);
-      background-size: 50px 50px;
-      animation: snow 10s linear infinite;
-      opacity: 0.6;
-      z-index: 0;
-    }
+/* ❄ KAR */
+.snow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+  background-size: 40px 40px, 60px 60px;
+  animation: snow 12s linear infinite;
+  opacity: 0.6;
+  z-index: 0;
+}
 
-    @keyframes snow {
-      from { background-position: 0 0; }
-      to { background-position: 0 500px; }
-    }
+@keyframes snow {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 0 600px, 0 900px; }
+}
 
-    /* FOTO GALERİ */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-      max-width: 900px;
-      margin: 40px auto;
-    }
+/* 📸 GALERİ */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  max-width: 900px;
+  margin: 40px auto;
+}
 
-    .gallery img {
-      width: 100%;
-      border-radius: 12px;
-      border: 2px solid #ffffff30;
-    }
+.gallery img {
+  width: 100%;
+  border-radius: 14px;
+  border: 2px solid #ffffff40;
+  transition: transform .3s;
+}
 
-    /* DÜNYA */
-    .earth {
-      width: 200px;
-      height: 200px;
-      margin: 40px auto;
-      border-radius: 50%;
-      background: url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
-      background-size: cover;
-      animation: spin 20s linear infinite;
-      box-shadow: 0 0 30px rgba(255,255,255,0.4);
-    }
+.gallery img:hover {
+  transform: scale(1.05);
+}
 
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+/* 🌍 DÜNYA */
+.earth-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
 
-    /* SPOTIFY */
-    iframe {
-      border-radius: 12px;
-      margin-top: 30px;
-    }
+.earth {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
+  background-size: cover;
+  animation: spin 25s linear infinite;
+  box-shadow: 0 0 40px rgba(255,255,255,0.5);
+  cursor: grab;
+}
 
-    footer {
-      opacity: 0.7;
-      font-size: 0.9rem;
-      margin-top: 50px;
-    }
-  </style>
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 🎵 SPOTIFY */
+iframe {
+  border-radius: 14px;
+  margin-top: 30px;
+}
+
+/* 🌺 KOKİNA */
+.kokina {
+  font-size: 2rem;
+  margin-top: 20px;
+}
+
+footer {
+  opacity: 0.6;
+  font-size: 0.9rem;
+  padding-bottom: 40px;
+}
+</style>
 </head>
 
 <body>
@@ -106,15 +124,20 @@
 <section>
   <h1>🎄 Yeni Yıl</h1>
   <p>
-    Seni çok seviyorum yeni yılda sağlık,mutluluk,huzur ve bolca para diliyorum güzelim.<br>
-    Kalbim her zaman seninle her anda seninleyim.<br><br>
-    Yeni bir yıl, yeni bir umut ve yeni başlangıçlara.
+    Bazı yıllar sadece takvim değiştirir.<br>
+    Bazıları insanın kalbinde iz bırakır.<br><br>
+    Yeni yılda sana; sağlık, huzur ve gülümseyebileceğin anlar diliyorum.<br>
+    Kalbim mesafeden bağımsız, hep seninle.
   </p>
+  <div class="kokina">🌺 🌲 🌺</div>
 </section>
 
 <section>
   <h1>📸 Anılar</h1>
-  <p>Buraya birlikte çekildiğimiz fotoğrafları koyabilirsin.</p>
+  <p>
+    Buraya birlikte çekildiğimiz fotoğrafları ekleyebilirsin.<br>
+    Her fotoğraf, bir zamanı durdurur.
+  </p>
 
   <div class="gallery">
     <img src="foto1.jpg">
@@ -127,26 +150,29 @@
 <section>
   <h1>🌍 Nereye gidersen git</h1>
 
-  <div class="earth"></div>
+  <div class="earth-wrapper">
+    <div class="earth"></div>
+  </div>
 
   <p>
     Konumun ne olursa olsun,<br>
-    nereye gidersen git,<br>
-    her zaman yanındayım.<br>
-    Seni uzaktan da olsa hissediyorum.
+    hangi şehir, hangi ülke olursa olsun,<br>
+    bil ki bir yerde kalbim<br>
+    hâlâ seninle dönüyor.
   </p>
 </section>
 
 <section>
-  <h1>🎵 Bir Şarkı</h1>
-  <p>Bu yılın sesi… belki biraz hüzünlü ama gerçek.</p>
+  <h1>🎵 Bu Yılın Sesi</h1>
+  <p>
+    Bazen bir şarkı,<br>
+    söylenemeyen her şeyi anlatır.
+  </p>
 
-  <!-- Spotify embed -->
-  <iframe 
-    src="https://open.spotify.com/embed/track/4cOdK2wGLETKBW3PvgPWqT" 
-    width="300" 
-    height="380" 
-    frameborder="0" 
+  <iframe
+    src="https://open.spotify.com/embed/track/4cOdK2wGLETKBW3PvgPWqT"
+    width="300"
+    height="380"
     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
   </iframe>
 </section>
@@ -154,8 +180,8 @@
 <footer>
   Yeni yıl… sessiz ama içten.
 </footer>
+
 <!-- github pages refresh -->
-trigger pages
 
 </body>
 </html>

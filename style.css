@@ -19,8 +19,6 @@ footer{ text-align:center;font-size:1rem;opacity:0.85;padding:50px 20px 50px;pos
 .ribbon.horizontal{height:15px;width:100%;top:50%;left:0;transform:translateY(-50%);}
 .ribbon.vertical{width:15px;height:100%;left:50%;top:0;transform:translateX(-50%);}
 .click-text{position:absolute;width:100%;bottom:-30px;text-align:center;font-size:1rem;color:#fff;}
-
-/* Paket açılma durumu */
 .opened .box{transform:translateY(-100px) rotate(-20deg);}
 .opened .ribbon.horizontal{transform:translateY(-50%) scaleX(0);}
 .opened .ribbon.vertical{transform:translateX(-50%) scaleY(0);}
@@ -32,10 +30,20 @@ footer{ text-align:center;font-size:1rem;opacity:0.85;padding:50px 20px 50px;pos
 #surprise-btn::before{content:"🎁";position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:1.3rem;}
 #love-text{position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%) scale(0);font-size: 3rem;color: #ff1a75;font-weight: bold;opacity: 0;pointer-events: none;text-shadow: 0 0 15px #fff;z-index: 10;text-align: center;}
 
+/* Anılarımız galerisi */
+#memories{padding:80px 20px;text-align:center;position:relative;z-index:5;}
+#memories h1{font-size:2.5rem;margin-bottom:20px;}
+#memories p{font-size:1.1rem;margin-bottom:30px;}
+#photo-input{margin-bottom:20px;}
+.photo-gallery{display:flex;flex-wrap:wrap;justify-content:center;gap:15px;}
+.photo-gallery img{width:200px;height:200px;object-fit:cover;border-radius:15px;box-shadow:0 0 15px rgba(255,255,255,0.3);transition: transform 0.3s, box-shadow 0.3s;}
+.photo-gallery img:hover{transform: scale(1.05);box-shadow:0 0 25px rgba(255,255,255,0.6);}
+
 /* Mobil uyumlu */
 @media(max-width:600px){
   h1{font-size:2rem;}
   .letter{padding:30px 20px;font-size:1rem;}
   #love-text{font-size:2rem;}
   #gift-box{width:120px;height:120px;}
+  .photo-gallery img{width:120px;height:120px;}
 }

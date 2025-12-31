@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Hediyeyi açma ve ana içeriği gösterme
   const giftWrapper = document.getElementById("gift-wrapper");
   const giftBox = document.getElementById("gift-box");
   const mainContent = document.getElementById("main-content");
-  const clickText = giftBox.querySelector(".click-text"); // tıkla ve aç yazısı
+  const clickText = giftBox.querySelector(".click-text");
 
   giftWrapper.addEventListener("click", ()=>{
     giftWrapper.classList.add("top");

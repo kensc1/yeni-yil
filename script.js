@@ -9,8 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   giftWrapper.addEventListener("click", ()=>{
     giftWrapper.classList.add("top");
     giftBox.classList.add("opened");
-
-    // Tıkla ve aç yazısını gizle
     clickText.style.display = "none";
 
     setTimeout(()=>{
@@ -127,28 +125,27 @@ document.addEventListener("DOMContentLoaded", () => {
     animateSnowman();
   }
 
-  // Google Drive fotoğraf galerisi
+  // Galeri
   const gallery = document.getElementById('photo-gallery');
-
-  const driveImages = [
-    // Önceki 7 fotoğraf
-    "https://drive.google.com/uc?export=view&id=1P-h5MqSTO72ra7MpRl3-DtwnTka9Zjpz",
-    "https://drive.google.com/uc?export=view&id=1br4wf3FtbKQnVh69dGWWhLt1Fi1l68Mj",
-    "https://drive.google.com/uc?export=view&id=1JjSaCEO9qhcz_PVO2t-XfpEf_DJaSU1q",
-    "https://drive.google.com/uc?export=view&id=17sTddePhTDpy2683KQYTngwbZAF2ySfD",
-    "https://drive.google.com/uc?export=view&id=1i7K-rTY-2awBSYhdohp__73axrD9OaAS",
-    "https://drive.google.com/uc?export=view&id=1xL1qgsJA30ryk3ts-hg27hwlfue_IgDx",
-    "https://drive.google.com/uc?export=view&id=1pjSzs4jhSgBkt52WffgcIo_5pvbLyBIh",
-    // Yeni eklenen 6 fotoğraf
-    "https://drive.google.com/uc?export=view&id=1efFFonNwGHpYadDJy_UtPdiQ3tPoyvUN",
-    "https://drive.google.com/uc?export=view&id=16m3wcra3L6jCaUhH4FZULMMeWYhe6ch4",
-    "https://drive.google.com/uc?export=view&id=1O0yD6zh6hSga8RK9zAxMOaz3Oeae5eSk",
-    "https://drive.google.com/uc?export=view&id=1HqMUbCw-WJ2bKbHYcX8M1dnGa-LnGh0b",
-    "https://drive.google.com/uc?export=view&id=1kSqgeHpqju1gkmALB0bxMsJWp1HVpAl9",
-    "https://drive.google.com/uc?export=view&id=1ZTVCeHDS1SGpFTI9GJUmv6H9s0f2wHhh"
+  const galleryImages = [
+    "https://github.com/kensc1/anilar-galerisi/blob/main/06c5a316-bf94-4f29-99ab-60d724070b86.jpeg?raw=true",
+    "https://github.com/kensc1/anilar-galerisi/blob/main/1c2032ff-2980-41fb-a90a-58ccc865a5c4.jpeg?raw=true",
+    "https://github.com/kensc1/anilar-galerisi/blob/main/2a072102-4eee-4a7c-baf6-a55f49f02713.jpeg?raw=true",
+    "https://github.com/kensc1/anilar-galerisi/blob/main/44fcfa52-423b-4d6d-b911-f5175f492ed7.jpeg?raw=true",
+    "https://github.com/kensc1/anilar-galerisi/blob/main/68ef6070-fab8-4913-b169-f3b80a24fef3.jpeg?raw=true",
+    "https://github.com/kensc1/anilar-galerisi/blob/main/7dec70ea-0a57-493e-a045-0752c496acf2.jpeg?raw=true",
+    "https://github.com/kensc1/anilar-galerisi/blob/main/815536f9-f6d4-403a-a27e-3d355122ba26.jpeg?raw=true",
+    "https://github.com/kensc1/anilar-galerisi/blob/main/IMG_1019.jpeg?raw=true",
+    "https://github.com/kensc1/anilar-galerisi/blob/main/IMG_1022.jpeg?raw=true",
+    "https://github.com/kensc1/anilar-galerisi/blob/main/IMG_1080.jpeg?raw=true",
+    "https://github.com/kensc1/anilar-galerisi/blob/main/IMG_1228.jpeg?raw=true",
+    "https://github.com/kensc1/anilar-galerisi/blob/main/IMG_1229.jpeg?raw=true",
+    "https://github.com/kensc1/anilar-galerisi/blob/main/IMG_7292.jpeg?raw=true",
+    "https://github.com/kensc1/anilar-galerisi/blob/main/da620371-c287-4c8f-9ad8-137116e78109.jpeg?raw=true",
+    "https://github.com/kensc1/anilar-galerisi/blob/main/e4db2263-d331-4da3-bb70-eb358d3663d7.jpeg?raw=true"
   ];
 
-  driveImages.forEach(url => {
+  galleryImages.forEach(url=>{
     const img = document.createElement('img');
     img.src = url;
     gallery.appendChild(img);

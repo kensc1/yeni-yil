@@ -3,75 +3,74 @@ function playSpotify() {
   alert("Spotify'da şarkıyı oynatmak için iframe içindeki 'Play' butonuna basmalısın.");
 }
 
-// Arkaplan karları
+// Canvas karları
 const canvas = document.getElementById("background-snow");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 const snowflakes = [];
-
-for(let i=0; i<200; i++){
+for(let i=0;i<250;i++){
   snowflakes.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    radius: Math.random() * 3 + 1,
-    speed: Math.random() * 1 + 0.5,
-    angle: Math.random() * Math.PI * 2
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    r: Math.random()*3+1,
+    d: Math.random()*1+0.5
   });
 }
 
-function drawSnow() {
+function drawSnow(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle = "white";
+  ctx.fillStyle="white";
   ctx.beginPath();
-  for(let flake of snowflakes){
-    ctx.moveTo(flake.x, flake.y);
-    ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI*2);
+  for(let f of snowflakes){
+    ctx.moveTo(f.x,f.y);
+    ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
   }
   ctx.fill();
   updateSnow();
 }
 
-function updateSnow() {
-  for(let flake of snowflakes){
-    flake.y += flake.speed;
-    flake.x += Math.sin(flake.angle)*0.5;
-    flake.angle += 0.01;
-    if(flake.y > canvas.height) flake.y = 0;
-    if(flake.x > canvas.width) flake.x = 0;
-    if(flake.x < 0) flake.x = canvas.width;
+let angle=0;
+function updateSnow(){
+  angle += 0.01;
+  for(let f of snowflakes){
+    f.y += f.d;
+    f.x += Math.sin(angle)*0.5;
+    if(f.y>canvas.height) f.y=0;
+    if(f.x>canvas.width) f.x=0;
+    if(f.x<0) f.x=canvas.width;
   }
   requestAnimationFrame(drawSnow);
 }
 
 drawSnow();
 
-// Metin ve elementler üstüne kar taneleri (basit efekt)
-const letters = document.querySelectorAll('.letter, p, h1');
+// Element üstüne kar düşmesi (hover)
+const elements = document.querySelectorAll('.letter, p, h1');
 
-letters.forEach(el=>{
-  el.addEventListener('mouseenter', ()=>{
-    // rastgele kar düşürme animasyonu
+elements.forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
     const snow = document.createElement('div');
     snow.style.position='absolute';
-    snow.style.width='6px';
-    snow.style.height='6px';
+    snow.style.width='5px';
+    snow.style.height='5px';
     snow.style.background='white';
     snow.style.borderRadius='50%';
-    snow.style.top = (el.getBoundingClientRect().top + window.scrollY) + 'px';
-    snow.style.left = (el.getBoundingClientRect().left + Math.random()*el.offsetWidth) + 'px';
+    const rect = el.getBoundingClientRect();
+    snow.style.left = rect.left + Math.random()*rect.width + 'px';
+    snow.style.top = rect.top + window.scrollY + 'px';
     snow.style.zIndex='10';
     document.body.appendChild(snow);
 
-    let y = parseFloat(snow.style.top);
-    const fall = setInterval(()=>{
+    let y=parseFloat(snow.style.top);
+    const fall=setInterval(()=>{
       y+=2;
-      snow.style.top = y+'px';
+      snow.style.top=y+'px';
       if(y>window.innerHeight){
         snow.remove();
         clearInterval(fall);
       }
-    }, 10);
+    },10);
   });
 });

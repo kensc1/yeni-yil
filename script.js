@@ -76,9 +76,9 @@ function startSnowmanAnimation(){
         snowman.growing = false;
         snowman.exploded = true;
         createParticles();
+        // Yazıyı sabit göster
         loveText.style.opacity = 1;
-        loveText.style.transform = "translate(-50%, -50%) scale(1.2)";
-        setTimeout(()=>{loveText.style.transform = "translate(-50%, -50%) scale(1)";},500);
+        loveText.style.transform = "translate(-50%, -50%) scale(1)";
       }
     }
 

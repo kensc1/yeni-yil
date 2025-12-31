@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>Yeni Yıl Kutlu Olsun</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<title>Yeni Yılın Kutlu Olsun</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- KAR TANECIKLERI KONTEYNERI -->
+<div id="snowContainer"></div>
+
 <!-- GİRİŞ -->
-<section class="content">
+<section>
   <h1>🎉 Yeni Yılın Mutlu Olsun!</h1>
   <p>Her yeni yıl, taze umutlar ve güzel anılar getirir.  
      Bu yıl da sana mutluluk, sevgi ve başarı dolu günler getirsin.  
@@ -17,7 +20,7 @@
 </section>
 
 <!-- ROMANTİK YAZI -->
-<section class="content">
+<section>
   <h1>💌 Sana</h1>
   <div class="letter">
     <p>Bu siteyi yaparken her satırında seni düşündüm.  
@@ -31,12 +34,43 @@
   </div>
 </section>
 
+<!-- ANILAR -->
+<section>
+  <h1>📸 Anılar</h1>
+  <p>Fotoğrafları daha sonra ekleyebilirsin. Yerleri hazır.</p>
+  <div class="gallery"></div>
+</section>
+
+<!-- DÜNYA -->
+<section>
+  <h1>🌍 Nereye Gidersen Git</h1>
+  <div class="earth"></div>
+  <p>Konumun ne olursa olsun, nereye gidersen git, kalbimin bir parçası hep seninle.</p>
+</section>
+
+<!-- MÜZİK -->
+<section>
+  <h1>🎵 Bu Yılın Sesi</h1>
+  <p>Bazı şeyler şarkılarla daha iyi anlatılıyor.</p>
+  <iframe data-testid="embed-iframe" 
+          style="border-radius:12px" 
+          src="https://open.spotify.com/embed/track/6cjIlxXM1ca6nxkJ0p27jU?utm_source=generator" 
+          width="100%" height="352" frameBorder="0" 
+          allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy"></iframe>
+</section>
+
 <!-- KAR TOPU BUTONU -->
-<section class="content">
+<section>
   <h1>🎁 Küçük Sürpriz</h1>
   <p>Butona tıkla ve bir kar topu patlasın!</p>
   <button id="snowButton">Tıkla!</button>
 </section>
+
+<footer>
+  Yeni yılın sana neşe, huzur ve sevgiyi getirmesini diliyorum.  
+  Her günün kalbinde bir ışık olsun.
+</footer>
 
 <script src="script.js"></script>
 </body>

@@ -7,20 +7,10 @@ body {
   overflow-x: hidden;
 }
 
-/* ARKA PLAN KAR */
-#backgroundSnow {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* İÇERİK */
 section.content {
-  position: relative;
+  position: relative; /* Kar tanecikleri burada üstte olacak */
   padding: 80px 20px;
   text-align: center;
-  z-index: 5; /* Karın yazı üstünde görünmesi için */
 }
 
 h1 { font-size: 2.5rem; margin-bottom: 20px; }
@@ -36,10 +26,8 @@ button {
   color: #7a0000;
   cursor: pointer;
   position: relative;
-  z-index: 6;
 }
 
-/* KAR TANECIKLERI */
 .snowflake {
   position: absolute;
   width: 6px;
@@ -48,11 +36,9 @@ button {
   border-radius: 50%;
   opacity: 0.8;
   pointer-events: none;
-  z-index: 10; /* yazının üstünde görünmesi için */
-  will-change: transform;
+  z-index: 10; /* Yazının üstünde görünmesi için */
 }
 
-/* KAR TOPU ANİMASYONU */
 .snowball {
   position: absolute;
   width: 15px;
@@ -62,7 +48,6 @@ button {
   pointer-events: none;
   opacity: 0.9;
   animation: snowball 1s forwards;
-  z-index: 15;
 }
 
 @keyframes snowball {

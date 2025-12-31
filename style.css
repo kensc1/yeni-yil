@@ -8,6 +8,19 @@ body {
   overflow-x: hidden;
 }
 
+/* Sayfa container açılış animasyonu */
+#page-container {
+  opacity: 0;
+  transform: scale(0.5) rotate(-10deg);
+  transform-origin: center top;
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+#page-container.show {
+  opacity:1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* Sectionlar */
 section {
   padding: 90px 20px;
   text-align: center;
@@ -24,28 +37,6 @@ p {
   line-height: 1.8;
 }
 
-/* Arka plan kar */
-#background-snow {
-  position: fixed;
-  inset:0;
-  pointer-events: none;
-  z-index:1;
-}
-
-/* Galeri */
-.gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; max-width:900px; margin:40px auto; }
-.gallery img { width:100%; border-radius:14px; border:2px solid rgba(255,255,255,0.2); }
-
-/* DÖNEN DÜNYA */
-.earth {
-  width:200px; height:200px; margin:40px auto; border-radius:50%;
-  background:url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
-  background-size:cover;
-  animation: spin 20s linear infinite;
-  box-shadow: 0 0 35px rgba(255,255,255,0.4);
-}
-@keyframes spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
-
 /* Uzun yazı */
 .letter {
   background: rgba(255,255,255,0.09);
@@ -57,24 +48,56 @@ p {
   overflow:visible;
 }
 
-/* SÜRPRİZ BUTONU */
+/* Galeri */
+.gallery { 
+  display:grid; 
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); 
+  gap:15px; 
+  max-width:900px; 
+  margin:40px auto; 
+}
+.gallery img { 
+  width:100%; 
+  border-radius:14px; 
+  border:2px solid rgba(255,255,255,0.2); 
+}
+
+/* DÖNEN DÜNYA */
+.earth {
+  width:200px; height:200px; margin:40px auto; border-radius:50%;
+  background:url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
+  background-size:cover;
+  animation: spin 20s linear infinite;
+  box-shadow: 0 0 35px rgba(255,255,255,0.4);
+}
+@keyframes spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+
+/* Arka plan kar */
+#background-snow {
+  position: fixed;
+  inset:0;
+  pointer-events: none;
+  z-index:1;
+}
+
+/* SÜRPRİZ BUTONU - Hediye paketi simgesi */
 #surprise-btn {
   background: url('https://cdn-icons-png.flaticon.com/512/2910/2910766.png') no-repeat center center;
   background-size: cover;
   border: none;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   margin: 20px auto;
   display: block;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
 }
 #surprise-btn:hover { transform: scale(1.2); }
 
 /* "Seni Seviyorum" yazısı */
 #love-text {
   display:block;
-  margin: -40px auto 20px auto;
+  margin: -60px auto 20px auto;
   font-size:3rem;
   color:#ff1a75;
   font-weight:bold;
@@ -84,21 +107,19 @@ p {
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-/* SAYFA KONTAINER ANİMASYONU */
-#page-container {
-  opacity:0;
-  transform: scale(0.5) rotate(-10deg);
-  transform-origin: center top;
-  transition: opacity 1.5s ease, transform 1.5s ease;
-}
-#page-container.show {
-  opacity:1;
-  transform: scale(1) rotate(0deg);
+/* Footer */
+footer { 
+  text-align: center; 
+  font-size: 0.95rem; 
+  opacity: 0.85; 
+  padding: 50px 20px 30px; 
+  position: relative; 
+  z-index: 5; 
 }
 
 /* Mobil uyum */
 @media(max-width:600px){
   h1 { font-size:2rem; }
   .letter { padding:30px 20px; font-size:1rem; }
-  #love-text { font-size:2rem; margin:-30px auto 15px auto; opacity:0; }
+  #love-text { font-size:2rem; margin:-50px auto 15px auto; opacity:0; }
 }

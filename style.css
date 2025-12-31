@@ -8,16 +8,10 @@ body {
   overflow-x: hidden;
 }
 
-/* Sayfa container açılış animasyonu */
+/* Sayfa container normal akış */
 #page-container {
-  opacity: 0;
-  transform: scale(0.5) rotate(-10deg);
-  transform-origin: center top;
-  transition: opacity 1.5s ease, transform 1.5s ease;
-}
-#page-container.show {
-  opacity:1;
-  transform: scale(1) rotate(0deg);
+  opacity: 1;
+  transform: none;
 }
 
 /* Sectionlar */
@@ -80,9 +74,9 @@ p {
   z-index:1;
 }
 
-/* SÜRPRİZ BUTONU - Eski para simgesi */
+/* SÜRPRİZ BUTONU - Hediye paketi simgesi */
 #surprise-btn {
-  background: url('https://cdn-icons-png.flaticon.com/512/2910/2910748.png') no-repeat center center;
+  background: url('https://cdn-icons-png.flaticon.com/512/2910/2910766.png') no-repeat center center;
   background-size: cover;
   border: none;
   width: 120px;

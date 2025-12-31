@@ -95,6 +95,7 @@
       max-width: 850px;
       margin: 0 auto;
       box-shadow: 0 0 35px rgba(0,0,0,0.35);
+      overflow: visible; /* taşan yazıyı göster */
     }
 
     iframe {
@@ -109,6 +110,15 @@
       padding: 50px 20px 30px;
       position: relative;
       z-index: 5;
+    }
+
+    /* Mobil uyum */
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .letter { 
+        padding: 30px 20px; 
+        font-size: 1rem; 
+      }
     }
   </style>
 </head>

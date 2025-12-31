@@ -33,14 +33,17 @@ function updateSnow(){
   }
   requestAnimationFrame(drawSnow);
 }
-
 drawSnow();
 
 // --- Sürpriz buton: Kardan adam patlaması ---
 const snowmanCanvas = document.getElementById("snowman-canvas");
 const sctx = snowmanCanvas.getContext("2d");
-snowmanCanvas.width = window.innerWidth;
-snowmanCanvas.height = window.innerHeight;
+function resizeSnowmanCanvas(){
+    snowmanCanvas.width = window.innerWidth;
+    snowmanCanvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resizeSnowmanCanvas);
+resizeSnowmanCanvas();
 
 const btn = document.getElementById("surprise-btn");
 btn.addEventListener("click", ()=>{

@@ -56,13 +56,17 @@ function startSnowmanAnimation(){
         snowman.growing = false;
         snowman.exploded = true;
         createParticles();
-        // göster "Seni Seviyorum"
+        // "Seni Seviyorum" yazısı patlama sonrası
         loveText.style.opacity = 1;
+        loveText.style.transform = "translate(-50%, -50%) scale(1.2)";
+        setTimeout(()=>{
+          loveText.style.transform = "translate(-50%, -50%) scale(1)";
+        },500);
       }
     }
 
     if(!snowman.exploded){
-      sctx.fillStyle="white";
+      sctx.fillStyle = "white";
       sctx.beginPath();
       sctx.arc(snowman.x,snowman.y,snowman.radius,0,Math.PI*2);
       sctx.fill();
@@ -70,10 +74,10 @@ function startSnowmanAnimation(){
 
     if(snowman.exploded){
       for(let i=0;i<snowman.particles.length;i++){
-        let p = snowman.particles[i];
+        let p=snowman.particles[i];
         p.x += p.vx;
         p.y += p.vy;
-        p.vy += 0.15; // yerçekimi
+        p.vy += 0.15;
         sctx.fillStyle="white";
         sctx.beginPath();
         sctx.arc(p.x,p.y,p.r,0,Math.PI*2);

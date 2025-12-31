@@ -6,7 +6,9 @@ window.addEventListener("resize",resizeCanvas);
 resizeCanvas();
 
 const snowflakes=[];
-for(let i=0;i<200;i++){snowflakes.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*3+1,d:Math.random()*1+0.5});}
+for(let i=0;i<200;i++){
+  snowflakes.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*3+1,d:Math.random()*1+0.5});
+}
 
 let angle=0;
 function drawSnow(){
@@ -38,46 +40,58 @@ window.addEventListener("resize",resizeSnowman);
 resizeSnowman();
 
 const btn=document.getElementById("surprise-btn");
+const loveText=document.getElementById("love-text");
+
 btn.addEventListener("click",()=>{startSnowmanAnimation();});
 
 function startSnowmanAnimation(){
-  let snowman={x:window.innerWidth/2,y:window.innerHeight/2+100,radius:20,maxRadius:80,growing:true,exploded:false,particles:[]};
+  let snowman={x:window.innerWidth/2,y:window.innerHeight/2,radius:10,maxRadius:100,growing:true,exploded:false,particles:[]};
 
   function animateSnowman(){
     sctx.clearRect(0,0,snowmanCanvas.width,snowmanCanvas.height);
+
     if(snowman.growing){
-      snowman.radius+=2;
-      if(snowman.radius>=snowman.maxRadius){snowman.growing=false;snowman.exploded=true;createParticles();}
+      snowman.radius += 2;
+      if(snowman.radius >= snowman.maxRadius){
+        snowman.growing = false;
+        snowman.exploded = true;
+        createParticles();
+        // göster "Seni Seviyorum"
+        loveText.style.opacity = 1;
+      }
     }
+
     if(!snowman.exploded){
       sctx.fillStyle="white";
       sctx.beginPath();
       sctx.arc(snowman.x,snowman.y,snowman.radius,0,Math.PI*2);
       sctx.fill();
     }
+
     if(snowman.exploded){
       for(let i=0;i<snowman.particles.length;i++){
-        let p=snowman.particles[i];
-        p.x+=p.vx;
-        p.y+=p.vy;
-        p.vy+=0.1;
+        let p = snowman.particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.15; // yerçekimi
         sctx.fillStyle="white";
         sctx.beginPath();
         sctx.arc(p.x,p.y,p.r,0,Math.PI*2);
         sctx.fill();
       }
     }
+
     requestAnimationFrame(animateSnowman);
   }
 
   function createParticles(){
-    for(let i=0;i<50;i++){
+    for(let i=0;i<80;i++){
       snowman.particles.push({
         x:snowman.x,
         y:snowman.y,
-        r: Math.random()*5+2,
-        vx: (Math.random()-0.5)*6,
-        vy: (Math.random()-1.5)*5
+        r: Math.random()*6+2,
+        vx: (Math.random()-0.5)*8,
+        vy: (Math.random()-1.5)*8
       });
     }
   }

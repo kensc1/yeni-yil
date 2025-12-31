@@ -1,105 +1,91 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Yeni Yılın Kutlu Olsun</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<title>Yeni Yılın Kutlu Olsun</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Segoe UI", sans-serif; background:#2b0000; color:white; overflow-x:hidden; position:relative; }
+  section { padding:90px 20px; text-align:center; position:relative; z-index:5; }
+  h1 { font-size:2.7rem; margin-bottom:25px; }
+  p { font-size:1.15rem; max-width:760px; margin:0 auto 20px; line-height:1.8; }
 
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #7a0000, #2b0000);
-      color: white;
-      overflow-x: hidden;
-      position: relative;
-    }
-    section { padding: 90px 20px; text-align: center; position: relative; z-index: 5; }
-    h1 { font-size: 2.7rem; margin-bottom: 25px; }
-    p { font-size: 1.15rem; max-width: 760px; margin: 0 auto 20px; line-height: 1.8; }
+  /* Overlay kar efekti */
+  #snowOverlay {
+    position:fixed; inset:0;
+    background:white; /* Başlangıçta tamamen karla kaplı */
+    z-index:9999;
+    pointer-events:none;
+    overflow:hidden;
+    opacity:1;
+    transition: opacity 0.5s ease;
+  }
+  .snowflake {
+    position:absolute;
+    width:8px;
+    height:8px;
+    background:white;
+    border-radius:50%;
+    opacity:0.8;
+    animation:fall linear infinite;
+  }
+  @keyframes fall {
+    0% { transform:translateY(-10px); }
+    100% { transform:translateY(100vh); }
+  }
 
-    /* KAR EFEKTİ */
-    .snow {
-      position: fixed; inset: 0; pointer-events: none;
-      background-image: radial-gradient(white 1px, transparent 1px);
-      background-size: 40px 40px;
-      animation: snow 12s linear infinite;
-      opacity: 0.6; z-index: 1;
-    }
-    @keyframes snow { from { background-position:0 0;} to {background-position:0 600px;} }
+  /* GALERİ */
+  .gallery { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:15px; max-width:900px; margin:40px auto; }
+  .gallery img { width:100%; border-radius:14px; border:2px solid rgba(255,255,255,0.2); }
 
-    /* GALERİ */
-    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; max-width: 900px; margin: 40px auto; }
-    .gallery img { width: 100%; border-radius: 14px; border: 2px solid rgba(255,255,255,0.2); }
+  /* DÖNEN DÜNYA */
+  .earth { width:200px; height:200px; margin:40px auto; border-radius:50%; background:url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg"); background-size:cover; animation:spin 20s linear infinite; box-shadow:0 0 35px rgba(255,255,255,0.4); }
+  @keyframes spin { from {transform:rotate(0deg);} to {transform:rotate(360deg);} }
 
-    /* DÖNEN DÜNYA */
-    .earth { width: 200px; height: 200px; margin: 40px auto; border-radius: 50%; background: url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg"); background-size: cover; animation: spin 20s linear infinite; box-shadow: 0 0 35px rgba(255,255,255,0.4); }
-    @keyframes spin { from { transform: rotate(0deg);} to { transform: rotate(360deg);} }
+  /* UZUN YAZI */
+  .letter { background: rgba(255,255,255,0.09); border-radius:20px; padding:40px 28px; max-width:850px; margin:0 auto; box-shadow:0 0 35px rgba(0,0,0,0.35); }
 
-    /* UZUN YAZI */
-    .letter { background: rgba(255,255,255,0.09); border-radius: 20px; padding: 40px 28px; max-width: 850px; margin: 0 auto; box-shadow: 0 0 35px rgba(0,0,0,0.35); overflow: visible; }
+  /* BUTON */
+  button { padding:12px 25px; font-size:1.1rem; border:none; border-radius:12px; background:#fff; color:#7a0000; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,0.3); transition: transform 0.2s; margin-top:15px; }
+  button:hover { transform:scale(1.1); }
 
-    /* BUTON */
-    button {
-      padding: 12px 25px; font-size: 1.1rem; border: none; border-radius: 12px;
-      background: #fff; color: #7a0000; cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: transform 0.2s; margin-top: 15px;
-    }
-    button:hover { transform: scale(1.1); }
+  /* KAR TOPU ANİMASYONU */
+  .snowball { position:absolute; width:15px; height:15px; background:white; border-radius:50%; pointer-events:none; opacity:0.9; animation:snowball 1s forwards; }
+  @keyframes snowball { 0% { transform:translate(0,0) scale(1); opacity:1; } 100% { transform:translate(var(--x), var(--y)) scale(0.3); opacity:0; } }
 
-    /* KAR TOPU ANİMASYONU */
-    .snowball {
-      position: absolute; width: 15px; height: 15px; background: white;
-      border-radius: 50%; pointer-events: none; opacity: 0.9;
-      animation: snowball 1s forwards;
-    }
-    @keyframes snowball {
-      0% { transform: translate(0,0) scale(1); opacity: 1; }
-      100% { transform: translate(var(--x), var(--y)) scale(0.3); opacity: 0; }
-    }
+  iframe { border-radius:12px; margin-top:25px; }
+  footer { text-align:center; font-size:0.95rem; opacity:0.85; padding:50px 20px 30px; position:relative; z-index:5; }
 
-    iframe { border-radius: 12px; margin-top: 25px; }
-
-    footer { text-align: center; font-size: 0.95rem; opacity: 0.85; padding: 50px 20px 30px; position: relative; z-index: 5; }
-
-    @media (max-width:600px){ h1{font-size:2rem;} .letter{padding:30px 20px; font-size:1rem;} }
-  </style>
+  @media (max-width:600px){ h1{font-size:2rem;} .letter{padding:30px 20px; font-size:1rem;} }
+</style>
 </head>
 
 <body>
 
-<div class="snow"></div>
+<!-- KAR OVERLAY -->
+<div id="snowOverlay"></div>
 
 <!-- GİRİŞ -->
 <section>
   <h1>🎉 Yeni Yılın Mutlu Olsun!</h1>
-  <p>
-    Her yeni yıl, taze umutlar ve güzel anılar getirir.  
-    Bu yıl da sana mutluluk, sevgi ve başarı dolu günler getirsin.  
-    Kalbinin ışığı hiç sönmesin.
-  </p>
+  <p>Her yeni yıl, taze umutlar ve güzel anılar getirir.  
+     Bu yıl da sana mutluluk, sevgi ve başarı dolu günler getirsin.  
+     Kalbinin ışığı hiç sönmesin.</p>
 </section>
 
 <!-- ROMANTİK YAZI -->
 <section>
   <h1>💌 Sana</h1>
   <div class="letter">
-    <p>
-      Bu siteyi yaparken her satırında seni düşündüm.  
-      Gülüşünü, sesini, birlikte sustuğumuz anları…  
-      Bazen yan yana, bazen kilometrelerce uzakta ama hep aynı hisle.
-    </p>
-    <p>
-      Hayat bizi yorarken bile birbirimize tutunmayı bildik.  
-      Kırıldık, sustuk, uzaklaştık belki… ama kalpten kopmadık.
-    </p>
-    <p>
-      Yeni yıl; geçmişin yükünü değil, geleceğin umudunu getirsin istiyorum sana.  
-      Ben her koşulda, her yerde, seni sevmeye devam edeceğim.
-    </p>
-    <p>
-      Bu sayfa, kelimeler yetmediğinde bile hissettiklerimin küçük bir izi olsun diye.
-    </p>
+    <p>Bu siteyi yaparken her satırında seni düşündüm.  
+       Gülüşünü, sesini, birlikte sustuğumuz anları…  
+       Bazen yan yana, bazen kilometrelerce uzakta ama hep aynı hisle.</p>
+    <p>Hayat bizi yorarken bile birbirimize tutunmayı bildik.  
+       Kırıldık, sustuk, uzaklaştık belki… ama kalpten kopmadık.</p>
+    <p>Yeni yıl; geçmişin yükünü değil, geleceğin umudunu getirsin istiyorum sana.  
+       Ben her koşulda, her yerde, seni sevmeye devam edeceğim.</p>
+    <p>Bu sayfa, kelimeler yetmediğinde bile hissettiklerimin küçük bir izi olsun diye.</p>
   </div>
 </section>
 
@@ -107,18 +93,14 @@
 <section>
   <h1>📸 Anılar</h1>
   <p>Fotoğrafları daha sonra ekleyebilirsin. Yerleri hazır.</p>
-  <div class="gallery">
-    <!-- <img src="foto1.jpg"> <img src="foto2.jpg"> -->
-  </div>
+  <div class="gallery"></div>
 </section>
 
 <!-- DÜNYA -->
 <section>
   <h1>🌍 Nereye Gidersen Git</h1>
   <div class="earth"></div>
-  <p>
-    Konumun ne olursa olsun, nereye gidersen git, kalbimin bir parçası hep seninle.
-  </p>
+  <p>Konumun ne olursa olsun, nereye gidersen git, kalbimin bir parçası hep seninle.</p>
 </section>
 
 <!-- MÜZİK -->
@@ -146,34 +128,46 @@
 </footer>
 
 <script>
-const button = document.getElementById("snowButton");
+// KAR TANECİKLERİ
+const overlay = document.getElementById("snowOverlay");
 
-function createSnowballs(clientX, clientY) {
-  for (let i = 0; i < 10; i++) {
-    const snow = document.createElement("div");
-    snow.className = "snowball";
-
-    // Sayfa kaydırmasını hesaba kat
-    const rect = document.body.getBoundingClientRect();
-    snow.style.left = (clientX + window.scrollX) + "px";
-    snow.style.top = (clientY + window.scrollY) + "px";
-
-    // Rastgele yön ve mesafe
-    const x = (Math.random() * 200 - 100) + "px";
-    const y = (Math.random() * -200) + "px";
-    snow.style.setProperty("--x", x);
-    snow.style.setProperty("--y", y);
-
-    document.body.appendChild(snow);
-    setTimeout(() => snow.remove(), 1000);
-  }
+// 200 kar tanesi oluştur
+for(let i=0;i<200;i++){
+  const snow = document.createElement("div");
+  snow.className = "snowflake";
+  snow.style.left = Math.random()*window.innerWidth + "px";
+  snow.style.top = Math.random()*window.innerHeight + "px";
+  snow.style.animationDuration = (5+Math.random()*5)+"s";
+  snow.style.opacity = 0.3+Math.random()*0.7;
+  overlay.appendChild(snow);
 }
 
-// Click ve touch desteği
-button.addEventListener("click", (e) => { createSnowballs(e.clientX, e.clientY); });
-button.addEventListener("touchstart", (e) => {
-  const touch = e.touches[0];
-  createSnowballs(touch.clientX, touch.clientY);
+// KAR AZALTMA
+function reduceSnow() {
+  overlay.style.opacity = Math.max(0, parseFloat(overlay.style.opacity)-0.1);
+  if(parseFloat(overlay.style.opacity)<=0){
+    overlay.style.display = "none";
+    window.removeEventListener("scroll", reduceSnow);
+  }
+}
+overlay.addEventListener("click", reduceSnow);
+window.addEventListener("scroll", reduceSnow);
+
+// KAR TOPU BUTONU
+const button = document.getElementById("snowButton");
+button.addEventListener("click", (e)=>{
+  for(let i=0;i<10;i++){
+    const snowball = document.createElement("div");
+    snowball.className="snowball";
+    snowball.style.left=(button.offsetLeft+button.offsetWidth/2+Math.random()*60-30)+"px";
+    snowball.style.top=(button.offsetTop+button.offsetHeight/2+Math.random()*20-10)+"px";
+    const x=(Math.random()*100-50)+"px";
+    const y=(Math.random()*-150)+"px";
+    snowball.style.setProperty("--x",x);
+    snowball.style.setProperty("--y",y);
+    document.body.appendChild(snowball);
+    setTimeout(()=>snowball.remove(),1200);
+  }
 });
 </script>
 

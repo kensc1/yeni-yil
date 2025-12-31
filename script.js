@@ -60,7 +60,7 @@ btn.addEventListener("click", () => {
         setTimeout(() => {
             loveText.style.transform = "scale(1)";
         }, 500);
-    }, 1200); // kardan adamın büyüme ve patlama süresine göre
+    }, 1200);
 });
 
 function startSnowmanAnimation() {

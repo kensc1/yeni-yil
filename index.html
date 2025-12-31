@@ -1,207 +1,206 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>Yeni Yıl</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Yeni Yılın Kutlu Olsun</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top, #8b0000, #1a0000);
-  color: white;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
+    html, body {
+      height: auto;
+      overflow-x: hidden;
+      font-family: "Segoe UI", sans-serif;
+    }
 
-section {
-  min-height: 100vh;
-  padding: 90px 20px;
-  text-align: center;
-  position: relative;
-  z-index: 5;
-}
+    body {
+      background: radial-gradient(circle at top, #7a0000, #2b0000);
+      color: white;
+      position: relative;
+    }
 
-h1 {
-  font-size: 3rem;
-  margin-bottom: 25px;
-}
+    section {
+      padding: 90px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 5;
+    }
 
-p {
-  font-size: 1.15rem;
-  max-width: 820px;
-  margin: 0 auto 25px;
-  line-height: 1.9;
-}
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
 
-/* ❄ KAR */
-.snow {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    radial-gradient(white 1px, transparent 1px),
-    radial-gradient(white 1px, transparent 1px);
-  background-size: 40px 40px, 70px 70px;
-  animation: snow 14s linear infinite;
-  opacity: 0.55;
-  z-index: 1;
-}
+    p {
+      font-size: 1.15rem;
+      max-width: 750px;
+      margin: 0 auto 20px;
+      line-height: 1.8;
+    }
 
-@keyframes snow {
-  from { background-position: 0 0, 0 0; }
-  to { background-position: 0 800px, 0 1200px; }
-}
+    /* KAR EFEKTİ */
+    .snow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(white 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: snow 12s linear infinite;
+      opacity: 0.6;
+      z-index: 1;
+    }
 
-/* 🌍 DÜNYA */
-.earth-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: 50px 0;
-}
+    @keyframes snow {
+      from { background-position: 0 0; }
+      to { background-position: 0 600px; }
+    }
 
-.earth {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
-  background-size: cover;
-  animation: spin 25s linear infinite;
-  box-shadow: 0 0 40px rgba(255,255,255,0.5);
-}
+    /* UZUN YAZI KUTUSU */
+    .letter {
+      background: rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 35px 25px;
+      max-width: 800px;
+      margin: 40px auto;
+      box-shadow: 0 0 30px rgba(0,0,0,0.3);
+    }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+    /* GALERİ */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      max-width: 900px;
+      margin: 40px auto;
+    }
 
-/* 📸 GALERİ (SONRA DOLACAK) */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-  max-width: 900px;
-  margin: 40px auto;
-}
+    .gallery img {
+      width: 100%;
+      border-radius: 14px;
+      border: 2px solid rgba(255,255,255,0.2);
+    }
 
-.gallery img {
-  width: 100%;
-  border-radius: 14px;
-  border: 2px solid #ffffff40;
-}
+    /* DÖNEN DÜNYA */
+    .earth {
+      width: 200px;
+      height: 200px;
+      margin: 40px auto;
+      border-radius: 50%;
+      background: url("https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg");
+      background-size: cover;
+      animation: spin 20s linear infinite;
+      box-shadow: 0 0 35px rgba(255,255,255,0.4);
+    }
 
-/* 🎵 */
-iframe {
-  border-radius: 14px;
-  margin-top: 30px;
-}
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
 
-.kokina {
-  font-size: 2rem;
-  margin-top: 20px;
-}
+    iframe {
+      border-radius: 12px;
+      margin-top: 25px;
+    }
 
-footer {
-  opacity: 0.6;
-  font-size: 0.9rem;
-  padding-bottom: 40px;
-}
-</style>
+    footer {
+      text-align: center;
+      opacity: 0.7;
+      font-size: 0.9rem;
+      padding: 40px 0 20px;
+      z-index: 5;
+      position: relative;
+    }
+  </style>
 </head>
 
 <body>
 
 <div class="snow"></div>
 
+<!-- GİRİŞ -->
 <section>
   <h1>🎄 Yeni Yıl</h1>
   <p>
-    Bazı hikâyeler bir anda başlamaz.<br>
-    Bizimki de öyleydi.<br><br>
-
-    Yıllar önce, 2020’den bile önce bir yerde karşılaştık.<br>
-    Sonra hayat araya girdi, yollar sustu, zaman geçti.<br><br>
-
-    Ben askere gittim, geldim…<br>
-    Ve geçen yılın Eylül ayında, yeniden konuşmaya başladık.<br>
-    Fark etmeden, yavaş yavaş.<br><br>
-
-    Ayın 20’si bizim için bir tarih oldu.<br>
-    Çünkü o gün, sana ilk kez “seni seviyorum” dedim.<br>
-    Sonra her ayın 20’si biraz daha anlam kazandı.
+    Yeni bir yıl…  
+    belki her şey değişmedi ama hissettiklerim hep aynı kaldı.  
+    Kalbimdeki yerin, zamanla ya da mesafeyle hiç eksilmedi.
   </p>
-
-  <div class="kokina">🌺 🌲 🌺</div>
 </section>
 
+<!-- UZUN ROMANTİK YAZI -->
 <section>
-  <h1>🤍 Biz</h1>
-  <p>
-    Aramızda bir muhabbet vardı…<br>
-    “Erkekler ilk çiçeklerini öldüklerinde alırlarmış” demiştim.<br><br>
+  <h1>💌 Sana</h1>
 
-    Sen ise 2 Ekim’de, doğum günümde,<br>
-    “Sen ilk çiçeğini yaşarken aldın” dedin.<br><br>
+  <div class="letter">
+    <p>
+      Bu siteyi yaparken her satırında seni düşündüm.  
+      Gülüşünü, sesini, birlikte sustuğumuz anları…  
+      Bazen yan yana, bazen kilometrelerce uzakta ama hep aynı hisle.
+    </p>
 
-    Hayatımda ilk kez bir çiçek aldım.<br>
-    Ve o çiçek, sadece bir çiçek değildi.
-  </p>
+    <p>
+      Hayat bizi yorarken bile birbirimize tutunmayı bildik.  
+      Kırıldık, sustuk, uzaklaştık belki…  
+      ama kalpten kopmadık.
+    </p>
 
-  <p>
-    Uzaktan bir ilişki yürüttük.<br>
-    Aylarca birbirimizi göremedik.<br>
-    Ama yine de bağımız koptu demedik.<br><br>
+    <p>
+      Yeni yıl;  
+      geçmişin yükünü değil,  
+      geleceğin umudunu getirsin istiyorum sana.  
+      Ben her koşulda, her yerde,  
+      seni sevmeye devam edeceğim.
+    </p>
 
-    Sonra buluştuk.<br>
-    Anılar biriktirdik.<br>
-    Güldük, sustuk, yan yana durduk.
-  </p>
+    <p>
+      Bu sayfa,  
+      kelimeler yetmediğinde bile  
+      hissettiklerimin küçük bir izi olsun diye.
+    </p>
+  </div>
 </section>
 
+<!-- ANILAR -->
 <section>
   <h1>📸 Anılar</h1>
-  <p>
-    Bu bölüm, birlikte çekildiğimiz fotoğraflar için.<br>
-    Şimdilik boş olabilir.<br>
-    Ama her fotoğraf bir gün buraya yerini bulacak.
-  </p>
+  <p>Fotoğrafları daha sonra ekleyebilirsin. Şimdilik yerleri hazır.</p>
 
   <div class="gallery">
-    <!-- Fotoğraflar buraya sonra eklenecek -->
+    <!--
+    <img src="foto1.jpg">
+    <img src="foto2.jpg">
+    -->
   </div>
 </section>
 
+<!-- DÜNYA -->
 <section>
-  <h1>🌍 Nereye gidersen git</h1>
+  <h1>🌍 Nereye Gidersen Git</h1>
 
-  <div class="earth-wrapper">
-    <div class="earth"></div>
-  </div>
+  <div class="earth"></div>
 
   <p>
-    Eskiden konumumuzu birlikte görürdük.<br>
-    Şimdi bazı şeyler kapalı olabilir.<br><br>
-
-    Ama bilmeni isterim ki;<br>
-    konumun ne olursa olsun,<br>
-    hangi şehir, hangi ülke olursa olsun,<br>
-    kalbimdeki yerin değişmedi.
+    Konumun ne olursa olsun,  
+    nereye gidersen git,  
+    kalbimin bir parçası hep seninle.
   </p>
 </section>
 
+<!-- MÜZİK -->
 <section>
   <h1>🎵 Bu Yılın Sesi</h1>
-  <p>
-    Belki biraz hüzünlü.<br>
-    Ama gerçek.
-  </p>
+  <p>Bazı duygular şarkılarla daha iyi anlatılıyor.</p>
 
   <iframe
     src="https://open.spotify.com/embed/track/4cOdK2wGLETKBW3PvgPWqT"
     width="300"
     height="380"
+    frameborder="0"
     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
   </iframe>
 </section>
@@ -209,8 +208,6 @@ footer {
 <footer>
   Yeni yıl… sessiz ama içten.
 </footer>
-
-<!-- github pages refresh -->
 
 </body>
 </html>

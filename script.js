@@ -1,13 +1,11 @@
-// KAR TANECİKLERİ
-for(let i=0;i<200;i++){
-  const snow = document.createElement("div");
-  snow.className = "snowflake";
-  snow.style.left = Math.random()*window.innerWidth + "px";
-  snow.style.top = Math.random()*window.innerHeight + "px";
-  snow.style.animationDuration = (5+Math.random()*5)+"s";
-  snow.style.opacity = 0.3+Math.random()*0.7;
-  document.body.appendChild(snow);
-}
+const overlay = document.getElementById("snowOverlay");
+
+// SCROLL ile overlayi azalt
+window.addEventListener("scroll", () => {
+  let maxScroll = document.body.scrollHeight - window.innerHeight;
+  let scrollFraction = window.scrollY / maxScroll;
+  overlay.style.opacity = Math.max(0, 1 - scrollFraction*1.2);
+});
 
 // KAR TOPU BUTONU
 const button = document.getElementById("snowButton");

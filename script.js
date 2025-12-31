@@ -56,9 +56,9 @@ btn.addEventListener("click", () => {
     // Patlamadan sonra yazıyı görünür yap
     setTimeout(() => {
         loveText.style.opacity = 1;
-        loveText.style.transform = "translate(-50%, -50%) scale(1.2)";
+        loveText.style.transform = "scale(1.2)";
         setTimeout(() => {
-            loveText.style.transform = "translate(-50%, -50%) scale(1)";
+            loveText.style.transform = "scale(1)";
         }, 500);
     }, 1200); // kardan adamın büyüme ve patlama süresine göre
 });

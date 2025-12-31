@@ -11,7 +11,12 @@ resizeCanvas();
 
 const snowflakes = [];
 for(let i=0;i<200;i++){
-    snowflakes.push({ x:Math.random()*canvas.width, y:Math.random()*canvas.height, r:Math.random()*3+1, d:Math.random()*1+0.5 });
+    snowflakes.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        r:Math.random()*3+1,
+        d:Math.random()*1+0.5
+    });
 }
 
 let angle = 0;
@@ -36,7 +41,7 @@ function drawSnow(){
 }
 drawSnow();
 
-// --- SAYFA AÇILMA ANİMASYONU ---
+// --- Sayfa açılış animasyonu (hediye paketi) ---
 window.addEventListener("load", () => {
     const container = document.getElementById("page-container");
     setTimeout(() => {
@@ -44,16 +49,16 @@ window.addEventListener("load", () => {
     }, 500);
 });
 
-// --- Kardan adam ve sürpriz ---
+// --- Sürpriz butonu ve kardan adam ---
 const snowmanCanvas = document.getElementById("snowman-canvas");
 const sctx = snowmanCanvas.getContext("2d");
 
-function resizeSnowman(){
+function resizeSnowmanCanvas() {
     snowmanCanvas.width = window.innerWidth;
     snowmanCanvas.height = window.innerHeight;
 }
-window.addEventListener("resize", resizeSnowman);
-resizeSnowman();
+window.addEventListener("resize", resizeSnowmanCanvas);
+resizeSnowmanCanvas();
 
 const btn = document.getElementById("surprise-btn");
 const loveText = document.getElementById("love-text");
@@ -61,6 +66,7 @@ const loveText = document.getElementById("love-text");
 btn.addEventListener("click", () => {
     startSnowmanAnimation();
 
+    // "Seni Seviyorum" yazısı patlama sonrası
     setTimeout(() => {
         loveText.style.opacity = 1;
         loveText.style.transform = "scale(1.2)";
@@ -70,23 +76,32 @@ btn.addEventListener("click", () => {
     },1200);
 });
 
-function startSnowmanAnimation(){
-    let snowman = { x:window.innerWidth/2, y:window.innerHeight/2, radius:10, maxRadius:100, growing:true, exploded:false, particles:[] };
+function startSnowmanAnimation() {
+    let snowman = {
+        x: window.innerWidth/2,
+        y: window.innerHeight/2,
+        radius: 10,
+        maxRadius: 100,
+        growing: true,
+        exploded: false,
+        particles: []
+    };
 
-    function animateSnowman(){
+    function animateSnowman() {
         sctx.clearRect(0,0,snowmanCanvas.width,snowmanCanvas.height);
 
-        if(snowman.growing){
-            snowman.radius+=2;
-            if(snowman.radius>=snowman.maxRadius){
-                snowman.growing=false;
-                snowman.exploded=true;
+        if(snowman.growing) {
+            snowman.radius += 2;
+            if(snowman.radius >= snowman.maxRadius) {
+                snowman.growing = false;
+                snowman.exploded = true;
                 createParticles();
             }
         }
 
         if(!snowman.exploded){
-            sctx.fillStyle="white";
+            // Kardan adam büyüyen hali
+            sctx.fillStyle = "white";
             sctx.beginPath();
             sctx.arc(snowman.x,snowman.y,snowman.radius,0,Math.PI*2);
             sctx.fill();
@@ -94,11 +109,11 @@ function startSnowmanAnimation(){
 
         if(snowman.exploded){
             for(let i=0;i<snowman.particles.length;i++){
-                let p=snowman.particles[i];
-                p.x+=p.vx;
-                p.y+=p.vy;
-                p.vy+=0.15;
-                sctx.fillStyle="white";
+                let p = snowman.particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += 0.15; // yerçekimi
+                sctx.fillStyle = "white";
                 sctx.beginPath();
                 sctx.arc(p.x,p.y,p.r,0,Math.PI*2);
                 sctx.fill();
@@ -111,11 +126,11 @@ function startSnowmanAnimation(){
     function createParticles(){
         for(let i=0;i<80;i++){
             snowman.particles.push({
-                x:snowman.x,
-                y:snowman.y,
-                r:Math.random()*6+2,
-                vx:(Math.random()-0.5)*8,
-                vy:(Math.random()-1.5)*8
+                x: snowman.x,
+                y: snowman.y,
+                r: Math.random()*6+2,
+                vx: (Math.random()-0.5)*8,
+                vy: (Math.random()-1.5)*8
             });
         }
     }

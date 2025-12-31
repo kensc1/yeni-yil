@@ -45,10 +45,24 @@ resizeSnowman();
 const btn=document.getElementById("surprise-btn");
 const loveText=document.getElementById("love-text");
 
+let snowmanAnimationId = null;
+
 btn.addEventListener("click",()=>{startSnowmanAnimation();});
 
 function startSnowmanAnimation(){
-  let snowman={x:window.innerWidth/2,y:window.innerHeight/2,radius:10,maxRadius:100,growing:true,exploded:false,particles:[]};
+  // Animasyon sıfırlama
+  if(snowmanAnimationId) cancelAnimationFrame(snowmanAnimationId);
+  sctx.clearRect(0,0,snowmanCanvas.width,snowmanCanvas.height);
+
+  let snowman={
+    x:window.innerWidth/2,
+    y:window.innerHeight/2,
+    radius:10,
+    maxRadius:100,
+    growing:true,
+    exploded:false,
+    particles:[]
+  };
 
   function animateSnowman(){
     sctx.clearRect(0,0,snowmanCanvas.width,snowmanCanvas.height);
@@ -59,9 +73,13 @@ function startSnowmanAnimation(){
         snowman.growing = false;
         snowman.exploded = true;
         createParticles();
+
+        // "Seni Seviyorum" yazısı
         loveText.style.opacity = 1;
         loveText.style.transform = "translate(-50%, -50%) scale(1.2)";
-        setTimeout(()=>{loveText.style.transform = "translate(-50%, -50%) scale(1)";},500);
+        setTimeout(()=>{
+          loveText.style.transform = "translate(-50%, -50%) scale(1)";
+        },500);
       }
     }
 
@@ -76,7 +94,7 @@ function startSnowmanAnimation(){
       for(let p of snowman.particles){
         p.x += p.vx;
         p.y += p.vy;
-        p.vy += 0.15;
+        p.vy += 0.15; // yerçekimi
         sctx.fillStyle="white";
         sctx.beginPath();
         sctx.arc(p.x,p.y,p.r,0,Math.PI*2);
@@ -84,7 +102,7 @@ function startSnowmanAnimation(){
       }
     }
 
-    requestAnimationFrame(animateSnowman);
+    snowmanAnimationId = requestAnimationFrame(animateSnowman);
   }
 
   function createParticles(){

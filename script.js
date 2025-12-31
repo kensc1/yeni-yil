@@ -9,7 +9,7 @@ giftWrapper.addEventListener("click", ()=>{
     giftWrapper.style.display="none";
     mainContent.style.opacity = 1;
     startSnow(); // kar animasyonu başlat
-  },800); // kutu açılma süresi
+  },800);
 });
 
 // --- Arka plan kar ---

@@ -12,16 +12,11 @@
       box-sizing: border-box;
     }
 
-    html, body {
-      height: auto;
-      overflow-x: hidden;
-      font-family: "Segoe UI", sans-serif;
-    }
-
     body {
+      font-family: "Segoe UI", sans-serif;
       background: radial-gradient(circle at top, #7a0000, #2b0000);
       color: white;
-      position: relative;
+      overflow-x: hidden;
     }
 
     section {
@@ -32,18 +27,18 @@
     }
 
     h1 {
-      font-size: 2.8rem;
-      margin-bottom: 20px;
+      font-size: 2.7rem;
+      margin-bottom: 25px;
     }
 
     p {
       font-size: 1.15rem;
-      max-width: 750px;
+      max-width: 760px;
       margin: 0 auto 20px;
       line-height: 1.8;
     }
 
-    /* KAR EFEKTİ */
+    /* KAR */
     .snow {
       position: fixed;
       inset: 0;
@@ -58,16 +53,6 @@
     @keyframes snow {
       from { background-position: 0 0; }
       to { background-position: 0 600px; }
-    }
-
-    /* UZUN YAZI KUTUSU */
-    .letter {
-      background: rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 35px 25px;
-      max-width: 800px;
-      margin: 40px auto;
-      box-shadow: 0 0 30px rgba(0,0,0,0.3);
     }
 
     /* GALERİ */
@@ -102,6 +87,16 @@
       to { transform: rotate(360deg); }
     }
 
+    /* UZUN YAZI */
+    .letter {
+      background: rgba(255,255,255,0.09);
+      border-radius: 20px;
+      padding: 40px 28px;
+      max-width: 850px;
+      margin: 0 auto;
+      box-shadow: 0 0 35px rgba(0,0,0,0.35);
+    }
+
     iframe {
       border-radius: 12px;
       margin-top: 25px;
@@ -109,11 +104,11 @@
 
     footer {
       text-align: center;
-      opacity: 0.7;
-      font-size: 0.9rem;
-      padding: 40px 0 20px;
-      z-index: 5;
+      font-size: 0.95rem;
+      opacity: 0.75;
+      padding: 50px 20px 30px;
       position: relative;
+      z-index: 5;
     }
   </style>
 </head>
@@ -127,48 +122,15 @@
   <h1>🎄 Yeni Yıl</h1>
   <p>
     Yeni bir yıl…  
-    belki her şey değişmedi ama hissettiklerim hep aynı kaldı.  
-    Kalbimdeki yerin, zamanla ya da mesafeyle hiç eksilmedi.
+    Bazı duygular değişmez.  
+    Bazı insanlar, her şeye rağmen kalpte aynı yerde durur.
   </p>
-</section>
-
-<!-- UZUN ROMANTİK YAZI -->
-<section>
-  <h1>💌 Sana</h1>
-
-  <div class="letter">
-    <p>
-      Bu siteyi yaparken her satırında seni düşündüm.  
-      Gülüşünü, sesini, birlikte sustuğumuz anları…  
-      Bazen yan yana, bazen kilometrelerce uzakta ama hep aynı hisle.
-    </p>
-
-    <p>
-      Hayat bizi yorarken bile birbirimize tutunmayı bildik.  
-      Kırıldık, sustuk, uzaklaştık belki…  
-      ama kalpten kopmadık.
-    </p>
-
-    <p>
-      Yeni yıl;  
-      geçmişin yükünü değil,  
-      geleceğin umudunu getirsin istiyorum sana.  
-      Ben her koşulda, her yerde,  
-      seni sevmeye devam edeceğim.
-    </p>
-
-    <p>
-      Bu sayfa,  
-      kelimeler yetmediğinde bile  
-      hissettiklerimin küçük bir izi olsun diye.
-    </p>
-  </div>
 </section>
 
 <!-- ANILAR -->
 <section>
   <h1>📸 Anılar</h1>
-  <p>Fotoğrafları daha sonra ekleyebilirsin. Şimdilik yerleri hazır.</p>
+  <p>Fotoğrafları daha sonra ekleyebilirsin. Yerleri hazır.</p>
 
   <div class="gallery">
     <!--
@@ -194,7 +156,7 @@
 <!-- MÜZİK -->
 <section>
   <h1>🎵 Bu Yılın Sesi</h1>
-  <p>Bazı duygular şarkılarla daha iyi anlatılıyor.</p>
+  <p>Bazı şeyler şarkılarla daha iyi anlatılıyor.</p>
 
   <iframe
     src="https://open.spotify.com/embed/track/4cOdK2wGLETKBW3PvgPWqT"
@@ -203,6 +165,43 @@
     frameborder="0"
     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
   </iframe>
+</section>
+
+<!-- EN SON: UZUN YAZI -->
+<section>
+  <h1>💌 Sana</h1>
+
+  <div class="letter">
+    <p>
+      Bu satırları yazarken zamanın ne kadar hızlı geçtiğini düşündüm.  
+      Yıllar önce bir an, sonra sessizlik…  
+      Sonra yeniden konuşmalar, geceler, beklemeler.
+    </p>
+
+    <p>
+      Ayın 20’si bizim için bir tarih değil, bir his oldu.  
+      İlk “seni seviyorum”un ağırlığı,  
+      uzaktan bile birbirine tutunabilmenin anlamı.
+    </p>
+
+    <p>
+      Hayat bizi bazen yordu, bazen susturdu.  
+      Yan yana olamadığımız zamanlar oldu ama  
+      hissettiklerimiz hiç yok olmadı.
+    </p>
+
+    <p>
+      Yeni yıl;  
+      sana huzur getirsin,  
+      kalbini yormasın,  
+      yüzünü güldürsün istiyorum.
+    </p>
+
+    <p>
+      Ben, her şeye rağmen,  
+      seni güzel hatırlıyorum.
+    </p>
+  </div>
 </section>
 
 <footer>

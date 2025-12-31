@@ -2,62 +2,74 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yeni Yılın Kutlu Olsun</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <canvas id="background-snow"></canvas>
+<canvas id="snowman-canvas"></canvas>
 
-<section>
-  <h1>🎉 Yeni Yılın Mutlu Olsun!</h1>
-  <p>Her yeni yıl, taze umutlar ve güzel anılar getirir.<br>
-     Bu yıl da sana mutluluk, sevgi ve başarı dolu günler getirsin.<br>
-     Kalbinin ışığı hiç sönmesin.
-  </p>
-</section>
+<div id="page-container">
 
-<section>
-  <h1>💌 Sana</h1>
-  <div class="letter">
-    <p>Bu siteyi yaparken her satırında seni düşündüm.<br>
-       Gülüşünü, sesini, birlikte sustuğumuz anları…<br>
-       Bazen yan yana, bazen kilometrelerce uzakta ama hep aynı hisle.
-    </p>
-    <p>Hayat bizi yorarken bile birbirimize tutunmayı bildik.<br>
-       Kırıldık, sustuk, uzaklaştık belki… ama kalpten kopmadık.
-    </p>
-    <p>Yeni yıl;<br>geçmişin yükünü değil,<br>geleceğin umudunu getirsin istiyorum sana.<br>
-       Ben her koşulda, her yerde, seni sevmeye devam edeceğim.
-    </p>
-    <p>Bu sayfa,<br>kelimeler yetmediğinde bile<br>hissettiklerimin küçük bir izi olsun diye.</p>
-  </div>
-</section>
+  <!-- GİRİŞ -->
+  <section>
+    <h1>🎉 Yeni Yılın Mutlu Olsun!</h1>
+    <p>Her yeni yıl, taze umutlar ve güzel anılar getirir. Bu yıl da sana mutluluk, sevgi ve başarı dolu günler getirsin. Kalbinin ışığı hiç sönmesin.</p>
+  </section>
 
-<section>
-  <h1>🌍 Nereye Gidersen Git</h1>
-  <div class="earth"></div>
-  <p>Konumun ne olursa olsun,<br>nereye gidersen git,<br>kalbimin bir parçası hep seninle.</p>
-</section>
+  <!-- ROMANTİK YAZI -->
+  <section>
+    <h1>💌 Sana</h1>
+    <div class="letter">
+      <p>Bu siteyi yaparken her satırında seni düşündüm. Gülüşünü, sesini, birlikte sustuğumuz anları… Bazen yan yana, bazen kilometrelerce uzakta ama hep aynı hisle.</p>
+      <p>Hayat bizi yorarken bile birbirimize tutunmayı bildik. Kırıldık, sustuk, uzaklaştık belki… ama kalpten kopmadık.</p>
+      <p>Yeni yıl; geçmişin yükünü değil, geleceğin umudunu getirsin istiyorum sana. Ben her koşulda, her yerde, seni sevmeye devam edeceğim.</p>
+      <p>Bu sayfa, kelimeler yetmediğinde bile hissettiklerimin küçük bir izi olsun diye.</p>
+    </div>
+  </section>
 
-<section>
-  <h1>🎵 Bu Yılın Sesi</h1>
-  <p>Bazı şeyler şarkılarla daha iyi anlatılıyor.</p>
-  <iframe src="https://open.spotify.com/embed/track/6cjIlxXM1ca6nxkJ0p27jU" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-</section>
+  <!-- ANILAR -->
+  <section>
+    <h1>📸 Anılar</h1>
+    <p>Fotoğrafları daha sonra ekleyebilirsin. Yerleri hazır.</p>
+    <div class="gallery"></div>
+  </section>
 
-<section>
-  <h1>🎁 Sürpriz Zamanı!</h1>
-  <button id="surprise-btn">Sürprizi Göster</button>
-  <canvas id="snowman-canvas"></canvas>
-  <div id="love-text">Seni Seviyorum ❤️</div>
-</section>
+  <!-- DÜNYA -->
+  <section>
+    <h1>🌍 Nereye Gidersen Git</h1>
+    <div class="earth"></div>
+    <p>Konumun ne olursa olsun, nereye gidersen git, kalbimin bir parçası hep seninle.</p>
+  </section>
 
-<footer>
-  Yeni yılın sana neşe, huzur ve sevgiyi getirmesini diliyorum.<br>
-  Her günün kalbinde bir ışık olsun.
-</footer>
+  <!-- MÜZİK -->
+  <section>
+    <h1>🎵 Bu Yılın Sesi</h1>
+    <p>Bazı şeyler şarkılarla daha iyi anlatılıyor.</p>
+    <iframe 
+      data-testid="embed-iframe"
+      style="border-radius:12px" 
+      src="https://open.spotify.com/embed/track/6cjIlxXM1ca6nxkJ0p27jU?utm_source=generator" 
+      width="100%" 
+      height="352" 
+      frameborder="0" 
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+      loading="lazy">
+    </iframe>
+  </section>
+
+  <!-- SÜRPRİZ -->
+  <section>
+    <h1>🎁 Sürpriz Zamanı</h1>
+    <div id="love-text">Seni Seviyorum ❤️</div>
+    <button id="surprise-btn"></button>
+  </section>
+
+  <footer>Yeni yılın sana neşe, huzur ve sevgiyi getirsin. Her günün kalbinde bir ışık olsun.</footer>
+
+</div>
 
 <script src="script.js"></script>
 </body>

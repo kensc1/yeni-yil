@@ -130,11 +130,22 @@ document.addEventListener("DOMContentLoaded", () => {
   // Google Drive fotoğraf galerisi
   const gallery = document.getElementById('photo-gallery');
 
-  // Buraya Drive linklerini ekleyeceksin
   const driveImages = [
-    // Örnek:
-    // "https://drive.google.com/uc?export=view&id=FILE_ID1",
-    // "https://drive.google.com/uc?export=view&id=FILE_ID2"
+    // Önceki 7 fotoğraf
+    "https://drive.google.com/uc?export=view&id=1P-h5MqSTO72ra7MpRl3-DtwnTka9Zjpz",
+    "https://drive.google.com/uc?export=view&id=1br4wf3FtbKQnVh69dGWWhLt1Fi1l68Mj",
+    "https://drive.google.com/uc?export=view&id=1JjSaCEO9qhcz_PVO2t-XfpEf_DJaSU1q",
+    "https://drive.google.com/uc?export=view&id=17sTddePhTDpy2683KQYTngwbZAF2ySfD",
+    "https://drive.google.com/uc?export=view&id=1i7K-rTY-2awBSYhdohp__73axrD9OaAS",
+    "https://drive.google.com/uc?export=view&id=1xL1qgsJA30ryk3ts-hg27hwlfue_IgDx",
+    "https://drive.google.com/uc?export=view&id=1pjSzs4jhSgBkt52WffgcIo_5pvbLyBIh",
+    // Yeni eklenen 6 fotoğraf
+    "https://drive.google.com/uc?export=view&id=1efFFonNwGHpYadDJy_UtPdiQ3tPoyvUN",
+    "https://drive.google.com/uc?export=view&id=16m3wcra3L6jCaUhH4FZULMMeWYhe6ch4",
+    "https://drive.google.com/uc?export=view&id=1O0yD6zh6hSga8RK9zAxMOaz3Oeae5eSk",
+    "https://drive.google.com/uc?export=view&id=1HqMUbCw-WJ2bKbHYcX8M1dnGa-LnGh0b",
+    "https://drive.google.com/uc?export=view&id=1kSqgeHpqju1gkmALB0bxMsJWp1HVpAl9",
+    "https://drive.google.com/uc?export=view&id=1ZTVCeHDS1SGpFTI9GJUmv6H9s0f2wHhh"
   ];
 
   driveImages.forEach(url => {

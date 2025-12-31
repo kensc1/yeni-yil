@@ -47,17 +47,6 @@ iframe {
   margin-top: 25px;
 }
 
-.play-button {
-  margin-top: 20px;
-  padding: 12px 25px;
-  background-color: #1DB954;
-  color: white;
-  border: none;
-  border-radius: 30px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -82,10 +71,13 @@ iframe {
   to { transform: rotate(360deg); }
 }
 
-@media (max-width: 600px) {
-  h1 { font-size: 2rem; }
-  .letter { padding: 30px 20px; font-size: 1rem; }
-  iframe { height: 300px; }
+footer {
+  text-align: center;
+  font-size: 1rem;
+  opacity: 0.85;
+  padding: 50px 20px 30px;
+  position: relative;
+  z-index: 5;
 }
 
 /* Canvas full ekran */
@@ -97,4 +89,10 @@ iframe {
   height: 100%;
   pointer-events: none;
   z-index: 0;
+}
+
+@media (max-width:600px){
+  h1{font-size:2rem;}
+  .letter{padding:30px 20px;font-size:1rem;}
+  iframe{height:300px;}
 }
